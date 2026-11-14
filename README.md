@@ -2,7 +2,7 @@
 
 **Rally intelligence, stage by stage.**
 
-Redline Tarmac is the rally-focused sibling in the Redline Motorsports family. It is an analytics-first experience for rally followers and data enthusiasts.
+Redline Tarmac is the rally-focused sibling in the Redline Motorsports family: an analytics-first experience for rally followers and data enthusiasts.
 
 ## Product direction
 
@@ -12,9 +12,9 @@ Redline Tarmac is the rally-focused sibling in the Redline Motorsports family. I
 - Calendar: rally and event schedule
 - Drivers & Teams: crew and manufacturer profiles
 
-## Development
+## Current prototype
 
-This project uses Vite, TypeScript and SCSS. The initial interface uses clearly labelled illustrative demo data; no live timing provider is connected yet.
+The first Rally Control prototype is a lightweight Vite site with responsive styling and small client-side interactions for stage selection and crew detail expansion. All displayed event, crew and timing values are illustrative demo data. No live timing provider is connected and nothing is presented as an official result.
 
 ## Local setup
 
@@ -23,8 +23,14 @@ npm install
 npm run dev
 ```
 
+## Build
+
+```bash
+npm run build
+```
+
 ## Deployment
 
-The site is designed for GitHub Pages at `https://redlinemotorsports.github.io/redline-tarmac/`.
+The site is configured for GitHub Pages at `https://redlinemotorsports.github.io/redline-tarmac/`. The deployment workflow publishes from `main`; pull requests run a separate build verification workflow.
 
 Data integrations will be provider-independent and added only after reliability, historical coverage and republication rights are assessed.
