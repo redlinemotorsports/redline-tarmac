@@ -21,3 +21,32 @@
 .control-art small,.control-art strong,.control-art label,.control-art i{z-index:1}
 .footer-credits{flex-basis:100%;color:var(--dim);font-size:8px;line-height:1.7;letter-spacing:.08em}
 .footer-credits a{color:#c6c9c8;text-decoration:underline;text-decoration-color:#ffffff50;text-underline-offset:3px}
+
+
+/* Hero refinement: replace the circular route ring with an angular stage trace. */
+.hero-visual .route{
+  top:22%;
+  right:10%;
+  width:48%;
+  height:58%;
+  border:0;
+  border-radius:0;
+  transform:none;
+  filter:drop-shadow(0 0 7px #ff6a0066);
+  opacity:.9;
+  background:#ff6a00;
+  clip-path:polygon(0 76%,12% 76%,22% 48%,34% 48%,43% 18%,56% 18%,66% 39%,78% 39%,89% 8%,100% 8%,100% 10%,90% 10%,79% 42%,67% 42%,57% 21%,44% 21%,35% 51%,23% 51%,13% 79%,0 79%);
+}
+.hero-visual .route-tag{
+  top:17%;
+  right:10%;
+  border:0;
+  border-left:2px solid var(--orange);
+  padding:6px 9px;
+  background:#151719c9;
+  color:#fff;
+  letter-spacing:.12em;
+}
+@media(max-width:760px){
+  .hero-visual .route{right:7%;width:55%;opacity:.7}
+}
