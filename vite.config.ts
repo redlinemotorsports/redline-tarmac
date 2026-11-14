@@ -1,2 +1,14 @@
 import { defineConfig } from "vite";
-export default defineConfig({ base: "/redline-tarmac/" });
+import { resolve } from "node:path";
+
+export default defineConfig({
+  base: "/redline-tarmac/",
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(process.cwd(), "index.html"),
+        rallyControl: resolve(process.cwd(), "rally-control.html")
+      }
+    }
+  }
+});
