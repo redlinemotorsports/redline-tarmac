@@ -6,7 +6,7 @@
 .standings-intro{max-width:430px;color:#c2c5c4;font-size:12px;line-height:1.8}
 .standings-meta{display:flex;gap:25px;margin-top:28px;padding-top:13px;border-top:1px solid #ffffff26;color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
 .standings-hero-art{position:relative;min-height:365px;overflow:hidden;background:#202428}
-.standings-driver-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 35%;filter:saturate(.78) contrast(1.06)}
+.standings-driver-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 35%;filter:grayscale(1) contrast(1.12) brightness(.92)}
 .driver-photo-shade{position:absolute;inset:0;background:linear-gradient(90deg,#1b1f22 0%,#1b1f22a8 12%,#15171920 52%,#15171940 100%),linear-gradient(0deg,#151719b8 0%,transparent 38%)}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,transparent,#000 35%);opacity:.25;pointer-events:none}
 .hero-art-label{position:absolute;right:28px;top:28px;color:#ffffffc4;font:9px/1.7 var(--mono);letter-spacing:.16em;text-align:right;text-shadow:0 1px 8px #000}
