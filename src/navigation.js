@@ -9,7 +9,8 @@
     [basePath, "home"],
     [basePath + "index.html", "home"],
     [basePath + "standings.html", "standings"],
-    [basePath + "rally-control.html", "rally-control"]
+    [basePath + "rally-control.html", "rally-control"],
+    [basePath + "newsroom.html", "newsroom"]
   ]);
   let activePage = document.body.dataset.page || "home";
   let loading = false;
