@@ -154,7 +154,6 @@
     if (!snapshot) return;
     const rows = ranking(snapshot.categories[activeView]);
     const isManufacturer = activeView === "manufacturers";
-    const isDriverList = activeView === "drivers" || activeView === "coDrivers";
     const label = activeView === "drivers" ? "DRIVERS’" :
       activeView === "coDrivers" ? "CO-DRIVERS’" : "MANUFACTURERS’";
     document.getElementById("table-context").textContent = label + " CHAMPIONSHIP / " + snapshot.season;
@@ -170,8 +169,8 @@
       const country = row.country || "";
       const team = teamFor(row);
       const identityCell = isManufacturer
-        ? "<td class='manufacturer-identity'><span class='manufacturer-mark' aria-hidden='true'>" + escapeHtml(teamMarkFor(row.name)) + "</span><strong>" + name + "</strong></td><td class='team-cell country-cell'>" + countryMarkup(country) + "</td>"
-        : "<td class='competitor-identity'><strong>" + name + "</strong><small class='nationality-line'>" + countryMarkup(country) + "</small></td><td class='team-cell team-identity'>" + teamMarkup(team) + "</td>";
+        ? "<td class='manufacturer-identity'><span class='manufacturer-identity-inner'><span class='manufacturer-mark' aria-hidden='true'>" + escapeHtml(teamMarkFor(row.name)) + "</span><strong>" + name + "</strong></span></td><td class='team-cell country-cell'>" + countryMarkup(country) + "</td>"
+        : "<td class='competitor-identity'><strong>" + name + "</strong><small class='nationality-line'>" + countryMarkup(country) + "</small></td><td class='team-cell team-identity'><span class='team-identity-inner'>" + teamMarkup(team) + "</span></td>";
       return "<tr" + (index === 0 ? " class='leader-row'" : "") + ">" +
         "<td class='position-cell'>" + String(position).padStart(2,"0") + (index === 0 ? "<span class='leader-dot'></span>" : "") + "</td>" +
         identityCell +
