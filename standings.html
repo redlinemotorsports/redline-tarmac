@@ -106,10 +106,55 @@
     return gap === 0 ? "—" : "−" + Math.abs(gap);
   };
 
+  const countryCodes = {
+    "UNITED KINGDOM":"GB","GREAT BRITAIN":"GB","UK":"GB","ENGLAND":"GB",
+    "JAPAN":"JP","FINLAND":"FI","ESTONIA":"EE","BELGIUM":"BE","FRANCE":"FR",
+    "SWEDEN":"SE","SPAIN":"ES","IRELAND":"IE","CZECH REPUBLIC":"CZ",
+    "CZECHIA":"CZ","ITALY":"IT","NORWAY":"NO","POLAND":"PL","PORTUGAL":"PT",
+    "AUSTRIA":"AT","MONACO":"MC","LUXEMBOURG":"LU","GREECE":"GR",
+    "TURKEY":"TR","TÜRKIYE":"TR","UNITED STATES":"US","USA":"US",
+    "NEW ZEALAND":"NZ","GERMANY":"DE","LATVIA":"LV","UKRAINE":"UA"
+  };
+  const countryCode = value => {
+    const raw = String(value ?? "").trim();
+    if (/^[a-z]{2}$/i.test(raw)) return raw.toUpperCase();
+    return countryCodes[raw.toUpperCase()] || "";
+  };
+  const flagFor = value => {
+    const code = countryCode(value);
+    if (!code) return "";
+    return String.fromCodePoint(...[...code].map(char => 127397 + char.charCodeAt(0)));
+  };
+  const teamFor = row => {
+    const value = row.team ?? row.teamName ?? row.manufacturer ?? row.manufacturerName ?? row.constructor ?? row.entrant;
+    if (typeof value === "string") return value.trim();
+    if (value && typeof value === "object") return String(value.name ?? value.title ?? "").trim();
+    return "";
+  };
+  const teamMarkFor = value => {
+    const normalized = String(value || "").toUpperCase();
+    if (normalized.includes("TOYOTA")) return "TGR";
+    if (normalized.includes("HYUNDAI")) return "HY";
+    if (normalized.includes("M-SPORT") || normalized.includes("FORD")) return "M-S";
+    const words = normalized.match(/[A-Z0-9]+/g) || [];
+    return words.slice(0,3).map(word => word[0]).join("") || "—";
+  };
+  const countryMarkup = value => {
+    const code = countryCode(value);
+    const flag = flagFor(value);
+    if (!code) return "<span class='identity-muted'>NATIONALITY UNAVAILABLE</span>";
+    return "<span class='nationality-flag' aria-hidden='true'>" + flag + "</span><span>" + escapeHtml(code) + "</span>";
+  };
+  const teamMarkup = value => {
+    if (!value) return "<span class='identity-muted'>TEAM DATA NOT PROVIDED</span>";
+    return "<span class='team-mark' aria-hidden='true'>" + escapeHtml(teamMarkFor(value)) + "</span><span class='team-name'>" + escapeHtml(value) + "</span>";
+  };
+
   function renderTable() {
     if (!snapshot) return;
     const rows = ranking(snapshot.categories[activeView]);
     const isManufacturer = activeView === "manufacturers";
+    const isDriverList = activeView === "drivers" || activeView === "coDrivers";
     const label = activeView === "drivers" ? "DRIVERS’" :
       activeView === "coDrivers" ? "CO-DRIVERS’" : "MANUFACTURERS’";
     document.getElementById("table-context").textContent = label + " CHAMPIONSHIP / " + snapshot.season;
@@ -117,16 +162,19 @@
     document.getElementById("table-provider").textContent = snapshot.provider || "Verified data provider";
     table.querySelector("thead").innerHTML = isManufacturer
       ? "<tr><th class='pos-col'>POS</th><th>MANUFACTURER</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>"
-      : "<tr><th class='pos-col'>POS</th><th>" + (activeView === "drivers" ? "DRIVER" : "CO-DRIVER") + "</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>";
+      : "<tr><th class='pos-col'>POS</th><th>" + (activeView === "drivers" ? "DRIVER" : "CO-DRIVER") + "</th><th>TEAM</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>";
     const leader = rows[0];
     body.innerHTML = rows.map((row, index) => {
       const position = Number(row.position ?? index + 1);
       const name = escapeHtml(row.name || "Unknown competitor");
-      const country = escapeHtml(row.country || "—");
+      const country = row.country || "";
+      const team = teamFor(row);
+      const identityCell = isManufacturer
+        ? "<td class='manufacturer-identity'><span class='manufacturer-mark' aria-hidden='true'>" + escapeHtml(teamMarkFor(row.name)) + "</span><strong>" + name + "</strong></td><td class='team-cell country-cell'>" + countryMarkup(country) + "</td>"
+        : "<td class='competitor-identity'><strong>" + name + "</strong><small class='nationality-line'>" + countryMarkup(country) + "</small></td><td class='team-cell team-identity'>" + teamMarkup(team) + "</td>";
       return "<tr" + (index === 0 ? " class='leader-row'" : "") + ">" +
         "<td class='position-cell'>" + String(position).padStart(2,"0") + (index === 0 ? "<span class='leader-dot'></span>" : "") + "</td>" +
-        "<td><strong>" + name + "</strong></td>" +
-        "<td class='team-cell'>" + country + "</td>" +
+        identityCell +
         "<td class='numeric points-cell'>" + points(row) + "</td>" +
         "<td class='numeric gap-cell'>" + gapText(row, leader) + "</td></tr>";
     }).join("");
