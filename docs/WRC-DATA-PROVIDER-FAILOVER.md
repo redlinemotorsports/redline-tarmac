@@ -47,6 +47,6 @@ Suggested future GitHub Actions secret names (only after provider access is appr
 
 ## Verification source
 
-Use official FIA WRC championship standings as an independent reconciliation reference where available: https://www.fia.com/events/world-rally-championship/season-2026/standings
+Use official FIA WRC championship standings as an independent reconciliation reference where available: https://api.fia.com/events/world-rally-championship/season-2026/standings
 
 A discrepancy must be investigated; do not silently blend rows from different providers or publication times.
