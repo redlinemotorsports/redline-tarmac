@@ -23,7 +23,7 @@
 <p class="eyebrow">THE TITLE PICTURE / 2026</p>
 <h1>THE<br><em>STANDINGS.</em></h1>
 <p class="standings-intro">Every point has a cost. Track the crews, compare the manufacturers and follow the margins shaping the championship.</p>
-<div class="standings-meta"><span>WORLD RALLY CHAMPIONSHIP</span><span>SEASON REVIEW / DEMO DATA</span></div>
+<div class="standings-meta"><span>WORLD RALLY CHAMPIONSHIP</span><span>OFFICIAL DATA FEED / SNAPSHOT</span></div>
 </div>
 <div class="standings-hero-art">
 <img class="standings-driver-photo" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Oliver_Solberg_in_2021.jpg/960px-Oliver_Solberg_in_2021.jpg" alt="WRC driver Oliver Solberg at Rally Monza 2021" fetchpriority="high">
@@ -33,65 +33,172 @@
 <span class="hero-art-square"></span>
 </div>
 </section>
-<div class="data-status"><span class="status-light"></span><strong>DEMO DATASET</strong><span>Illustrative figures only — not official championship results.</span><span class="status-updated">LAST UPDATED / PROTOTYPE</span></div>
+<div class="data-status" id="data-status" aria-live="polite"><span class="status-light"></span><strong id="data-state">LOADING DATA</strong><span id="data-message">Connecting to the latest championship snapshot…</span><span class="status-updated" id="data-updated">LAST UPDATED / —</span></div>
 <section class="standings-overview" aria-label="Championship overview">
-<article class="overview-lead"><span class="data-index">01 / CHAMPIONSHIP SNAPSHOT</span><h2>THE MARGIN<br>IS THE STORY.</h2><p>Three crews. One target. A season decided by consistency as much as outright pace.</p></article>
-<div class="overview-stat"><span>DRIVER LEADER</span><strong>CREW ALPHA</strong><small>DEMO CLASSIFICATION</small></div>
-<div class="overview-stat"><span>POINTS LEAD</span><strong>28 <i>PTS</i></strong><small>GAP TO SECOND</small></div>
-<div class="overview-stat"><span>ROUNDS</span><strong>13 <i>/ 13</i></strong><small>SEASON REVIEW</small></div>
+<article class="overview-lead"><span class="data-index">01 / CHAMPIONSHIP SNAPSHOT</span><h2>THE MARGIN<br>IS THE STORY.</h2><p>Championship positions, points and title margins from the latest available WRC standings snapshot.</p></article>
+<div class="overview-stat"><span>DRIVER LEADER</span><strong id="driver-leader">—</strong><small>DRIVERS’ CHAMPIONSHIP</small></div>
+<div class="overview-stat"><span>TITLE MARGIN</span><strong id="title-gap">—</strong><small>LEADER TO SECOND</small></div>
+<div class="overview-stat"><span>MANUFACTURER LEADER</span><strong id="manufacturer-leader">—</strong><small>MANUFACTURERS’ CHAMPIONSHIP</small></div>
 </section>
 <section class="standings-section">
 <header class="standings-section-head"><div><p class="eyebrow">01 / CREW PERFORMANCE</p><h2>Drivers &amp; co-drivers</h2></div><span class="section-aside">OVERALL CLASSIFICATION <b>／</b> 2026</span></header>
-<div class="table-toolbar"><div class="table-tabs" role="tablist" aria-label="Standings category"><button class="table-tab active" role="tab" aria-selected="true" data-view="crews">DRIVERS &amp; CO-DRIVERS</button><button class="table-tab" role="tab" aria-selected="false" data-view="manufacturers">MANUFACTURERS</button></div><span class="table-context">POINTS / WINS / PODIUMS</span></div>
-<div class="standings-table-wrap">
-<table class="standings-table" id="crew-table">
-<thead><tr><th class="pos-col">POS</th><th>DRIVER / CO-DRIVER</th><th>TEAM</th><th class="numeric">POINTS</th><th class="numeric">WINS</th><th class="numeric">PODIUMS</th><th class="numeric">GAP</th></tr></thead>
-<tbody>
-<tr class="leader-row"><td class="position-cell"><b>01</b><span class="leader-dot"></span></td><td><strong>CREW ALPHA</strong><small>Driver Alpha / Co-driver Alpha</small></td><td class="team-cell">REDLINE RALLY TEAM</td><td class="numeric points-cell">248</td><td class="numeric">5</td><td class="numeric">9</td><td class="numeric gap-cell">—</td></tr>
-<tr><td class="position-cell">02</td><td><strong>CREW BRAVO</strong><small>Driver Bravo / Co-driver Bravo</small></td><td class="team-cell">NORTHSTAR MOTORSPORT</td><td class="numeric points-cell">220</td><td class="numeric">3</td><td class="numeric">7</td><td class="numeric gap-cell">−28</td></tr>
-<tr><td class="position-cell">03</td><td><strong>CREW CHARLIE</strong><small>Driver Charlie / Co-driver Charlie</small></td><td class="team-cell">APEX COMPETITION</td><td class="numeric points-cell">187</td><td class="numeric">2</td><td class="numeric">5</td><td class="numeric gap-cell">−61</td></tr>
-<tr><td class="position-cell">04</td><td><strong>CREW DELTA</strong><small>Driver Delta / Co-driver Delta</small></td><td class="team-cell">REDLINE RALLY TEAM</td><td class="numeric points-cell">164</td><td class="numeric">1</td><td class="numeric">4</td><td class="numeric gap-cell">−84</td></tr>
-<tr><td class="position-cell">05</td><td><strong>CREW ECHO</strong><small>Driver Echo / Co-driver Echo</small></td><td class="team-cell">NORTHSTAR MOTORSPORT</td><td class="numeric points-cell">139</td><td class="numeric">1</td><td class="numeric">3</td><td class="numeric gap-cell">−109</td></tr>
-<tr><td class="position-cell">06</td><td><strong>CREW FOXTROT</strong><small>Driver Foxtrot / Co-driver Foxtrot</small></td><td class="team-cell">APEX COMPETITION</td><td class="numeric points-cell">112</td><td class="numeric">0</td><td class="numeric">2</td><td class="numeric gap-cell">−136</td></tr>
-</tbody></table>
-<table class="standings-table manufacturers-table" id="manufacturer-table" hidden>
-<thead><tr><th class="pos-col">POS</th><th>MANUFACTURER</th><th>LEADING CREW</th><th class="numeric">POINTS</th><th class="numeric">WINS</th><th class="numeric">GAP</th></tr></thead>
-<tbody>
-<tr class="leader-row"><td class="position-cell"><b>01</b><span class="leader-dot"></span></td><td><strong>REDLINE RALLY TEAM</strong><small>Manufacturer programme</small></td><td class="team-cell">CREW ALPHA</td><td class="numeric points-cell">412</td><td class="numeric">6</td><td class="numeric gap-cell">—</td></tr>
-<tr><td class="position-cell">02</td><td><strong>NORTHSTAR MOTORSPORT</strong><small>Manufacturer programme</small></td><td class="team-cell">CREW BRAVO</td><td class="numeric points-cell">359</td><td class="numeric">4</td><td class="numeric gap-cell">−53</td></tr>
-<tr><td class="position-cell">03</td><td><strong>APEX COMPETITION</strong><small>Manufacturer programme</small></td><td class="team-cell">CREW CHARLIE</td><td class="numeric points-cell">299</td><td class="numeric">2</td><td class="numeric gap-cell">−113</td></tr>
-</tbody></table>
-</div>
-<p class="table-footnote"><span>■</span> Sample values are fictional and used to demonstrate the standings interface.</p>
+<div class="table-toolbar"><div class="table-tabs" role="tablist" aria-label="Standings category"><button class="table-tab active" role="tab" aria-selected="true" data-view="drivers">DRIVERS</button><button class="table-tab" role="tab" aria-selected="false" data-view="coDrivers">CO-DRIVERS</button><button class="table-tab" role="tab" aria-selected="false" data-view="manufacturers">MANUFACTURERS</button></div><span class="table-context" id="table-context">DRIVERS’ CHAMPIONSHIP / 2026</span></div>
+<div class="standings-table-wrap"><table class="standings-table" id="standings-table"><thead><tr><th class="pos-col">POS</th><th>DRIVER</th><th>COUNTRY</th><th class="numeric">POINTS</th><th class="numeric">GAP</th></tr></thead><tbody id="standings-body"><tr><td colspan="5">Loading championship standings…</td></tr></tbody></table></div>
+<p class="table-footnote"><span>■</span> Source: Blacktop Data WRC API. Snapshot data is updated on the scheduled refresh; this is not live stage timing.</p>
 </section>
 <section class="battle-section">
-<header class="standings-section-head"><div><p class="eyebrow">02 / THE TITLE BATTLE</p><h2>Margins make champions.</h2></div><span class="section-aside">POINTS PROGRESSION <b>／</b> DEMO</span></header>
+<header class="standings-section-head"><div><p class="eyebrow">02 / THE TITLE BATTLE</p><h2>Margins make champions.</h2></div><span class="section-aside" id="battle-season">CURRENT DRIVER TOP THREE</span></header>
 <div class="battle-grid">
-<article class="battle-chart-panel"><div class="panel-topline"><span>CHAMPIONSHIP POINTS</span><span>ROUND 01 — 13</span></div><div class="chart-legend"><span><i class="legend-alpha"></i>CREW ALPHA</span><span><i class="legend-bravo"></i>CREW BRAVO</span><span><i class="legend-charlie"></i>CREW CHARLIE</span></div>
-<div class="points-chart" role="img" aria-label="Illustrative championship points progression for three crews across thirteen rounds">
-<div class="chart-y-labels"><span>250</span><span>200</span><span>150</span><span>100</span><span>50</span><span>0</span></div>
-<svg viewBox="0 0 700 250" preserveAspectRatio="none" aria-hidden="true"><g class="chart-grid"><path d="M0 8H700 M0 55H700 M0 102H700 M0 149H700 M0 196H700 M0 243H700"/></g><polyline class="line-alpha" points="0,221 58,203 116,184 175,167 233,149 291,130 350,111 408,96 466,76 525,58 583,40 641,24 700,10"/><polyline class="line-bravo" points="0,228 58,215 116,202 175,188 233,176 291,158 350,145 408,129 466,115 525,99 583,86 641,70 700,56"/><polyline class="line-charlie" points="0,235 58,229 116,218 175,208 233,198 291,185 350,173 408,164 466,150 525,140 583,128 641,117 700,106"/></svg>
-<div class="chart-x-labels"><span>R01</span><span>R03</span><span>R05</span><span>R07</span><span>R09</span><span>R11</span><span>R13</span></div></div>
-<p class="chart-disclaimer">Illustrative progression only. Replace with verified round-by-round points when a licensed data source is connected.</p></article>
-<aside class="battle-leaderboard"><div class="panel-topline"><span>TITLE CONTENDERS</span><span>FINAL</span></div>
-<div class="contender"><span class="contender-pos">01</span><div><strong>CREW ALPHA</strong><small>5 WINS / 9 PODIUMS</small></div><b>248</b></div>
-<div class="contender"><span class="contender-pos">02</span><div><strong>CREW BRAVO</strong><small>3 WINS / 7 PODIUMS</small></div><b>220</b></div>
-<div class="contender"><span class="contender-pos">03</span><div><strong>CREW CHARLIE</strong><small>2 WINS / 5 PODIUMS</small></div><b>187</b></div>
-<div class="battle-gap"><span>CHAMPIONSHIP GAP</span><strong>28 <i>PTS</i></strong><small>ALPHA TO BRAVO</small></div>
-</aside></div>
+<article class="battle-chart-panel"><div class="panel-topline"><span>THE CHAMPIONSHIP LEAD</span><span id="battle-margin-label">POINTS GAP</span></div><div id="battle-lead-copy"><h2 class="battle-lead-name">Waiting for standings data</h2><p class="chart-disclaimer">The title picture will appear here when the latest snapshot is available.</p></div></article>
+<aside class="battle-leaderboard"><div class="panel-topline"><span>DRIVER TOP THREE</span><span>POINTS</span></div><div id="contenders-list"><p class="chart-disclaimer">Loading championship positions…</p></div><div class="battle-gap"><span>CHAMPIONSHIP GAP</span><strong id="battle-gap">—</strong><small>FIRST TO SECOND</small></div></aside>
+</div>
 </section>
 <section class="standings-bottom"><div><p class="eyebrow">THE NEXT LAYER / DATA CENTRE</p><h2>Beyond the points.</h2><p>Compare crew performance across surfaces, stage types and rally conditions. Deeper analytics will follow as verified historical data becomes available.</p></div><a class="primary-action" href="./#data-centre">EXPLORE DATA CENTRE <b>↗</b></a></section>
 </main>
-<footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span>DEMO DATA / NOT OFFICIAL RESULTS</span></footer>
+<footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span>WRC API SNAPSHOT / NOT LIVE TIMING</span></footer>
 </div>
 <script>
-const tabs=[...document.querySelectorAll("[data-view]")];
-const crewTable=document.getElementById("crew-table"),manufacturerTable=document.getElementById("manufacturer-table");
-tabs.forEach(tab=>tab.addEventListener("click",()=>{
- const manufacturers=tab.dataset.view==="manufacturers";
- tabs.forEach(item=>{const active=item===tab;item.classList.toggle("active",active);item.setAttribute("aria-selected",String(active));});
- crewTable.hidden=manufacturers;manufacturerTable.hidden=!manufacturers;
-}));
+(() => {
+  const CACHE_KEY = "redline-tarmac:wrc-standings:v1";
+  const snapshotUrl = new URL("./data/standings.json", document.baseURI);
+  const tabs = [...document.querySelectorAll("[data-view]")];
+  const table = document.getElementById("standings-table");
+  const body = document.getElementById("standings-body");
+  const status = {
+    state: document.getElementById("data-state"),
+    message: document.getElementById("data-message"),
+    updated: document.getElementById("data-updated")
+  };
+  let snapshot = null;
+  let activeView = "drivers";
+
+  const validSnapshot = value => value && value.championship === "WRC" &&
+    value.categories && ["drivers", "coDrivers", "manufacturers"].every(key =>
+      Array.isArray(value.categories[key]) && value.categories[key].length > 0
+    );
+
+  const formatDate = value => {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "TIME UNAVAILABLE";
+    return new Intl.DateTimeFormat("en-MY", {
+      timeZone: "Asia/Kuala_Lumpur", day: "2-digit", month: "short",
+      year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false
+    }).format(date) + " MYT";
+  };
+
+  const setStatus = (state, message, fetchedAt) => {
+    status.state.textContent = state;
+    status.message.textContent = message;
+    status.updated.textContent = "LAST UPDATED / " + (fetchedAt ? formatDate(fetchedAt) : "—");
+    document.querySelector(".status-light").classList.toggle("is-cached", state.includes("CACHED"));
+  };
+
+  const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
+
+  const points = row => Number.isFinite(Number(row.points)) ? Number(row.points) : 0;
+  const ranking = rows => [...rows].sort((a,b) => Number(a.position ?? 999) - Number(b.position ?? 999));
+  const gapText = (value, leader) => {
+    const gap = points(value) - points(leader);
+    return gap === 0 ? "—" : "−" + Math.abs(gap);
+  };
+
+  function renderTable() {
+    if (!snapshot) return;
+    const rows = ranking(snapshot.categories[activeView]);
+    const isManufacturer = activeView === "manufacturers";
+    const label = activeView === "drivers" ? "DRIVERS’" :
+      activeView === "coDrivers" ? "CO-DRIVERS’" : "MANUFACTURERS’";
+    document.getElementById("table-context").textContent = label + " CHAMPIONSHIP / " + snapshot.season;
+    table.querySelector("thead").innerHTML = isManufacturer
+      ? "<tr><th class='pos-col'>POS</th><th>MANUFACTURER</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>"
+      : "<tr><th class='pos-col'>POS</th><th>" + (activeView === "drivers" ? "DRIVER" : "CO-DRIVER") + "</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>";
+    const leader = rows[0];
+    body.innerHTML = rows.map((row, index) => {
+      const position = Number(row.position ?? index + 1);
+      const name = escapeHtml(row.name || "Unknown competitor");
+      const country = escapeHtml(row.country || "—");
+      return "<tr" + (index === 0 ? " class='leader-row'" : "") + ">" +
+        "<td class='position-cell'>" + String(position).padStart(2,"0") + (index === 0 ? "<span class='leader-dot'></span>" : "") + "</td>" +
+        "<td><strong>" + name + "</strong></td>" +
+        "<td class='team-cell'>" + country + "</td>" +
+        "<td class='numeric points-cell'>" + points(row) + "</td>" +
+        "<td class='numeric gap-cell'>" + gapText(row, leader) + "</td></tr>";
+    }).join("");
+  }
+
+  function renderOverview() {
+    const drivers = ranking(snapshot.categories.drivers);
+    const manufacturers = ranking(snapshot.categories.manufacturers);
+    const driver = drivers[0], second = drivers[1], manufacturer = manufacturers[0];
+    document.getElementById("driver-leader").textContent = driver?.name || "—";
+    document.getElementById("title-gap").innerHTML = second
+      ? Math.max(0, points(driver) - points(second)) + " <i>PTS</i>" : "—";
+    document.getElementById("manufacturer-leader").textContent = manufacturer?.name || "—";
+    document.getElementById("battle-season").textContent = snapshot.season + " / DRIVER TOP THREE";
+    document.getElementById("battle-lead-copy").innerHTML = driver
+      ? "<h2 class='battle-lead-name'>" + escapeHtml(driver.name) + "</h2><p class='chart-disclaimer'>" +
+        points(driver) + " points · " + escapeHtml(driver.country || "Country unavailable") +
+        ". The current championship leader in the latest available snapshot.</p>"
+      : "<p class='chart-disclaimer'>Driver standings are unavailable.</p>";
+    document.getElementById("contenders-list").innerHTML = drivers.slice(0,3).map((row,index) =>
+      "<div class='contender'><span class='contender-pos'>" + String(index+1).padStart(2,"0") +
+      "</span><div><strong>" + escapeHtml(row.name) + "</strong><small>" +
+      escapeHtml(row.country || "—") + "</small></div><b>" + points(row) + "</b></div>"
+    ).join("") || "<p class='chart-disclaimer'>No driver standings available.</p>";
+    document.getElementById("battle-gap").innerHTML = second
+      ? Math.max(0, points(driver) - points(second)) + " <i>PTS</i>" : "—";
+  }
+
+  function render() {
+    renderTable();
+    renderOverview();
+  }
+
+  async function loadSnapshot() {
+    let cached = null;
+    try {
+      const stored = localStorage.getItem(CACHE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (validSnapshot(parsed)) cached = parsed;
+      }
+    } catch (_) { /* Browser storage may be unavailable; network data can still load. */ }
+
+    try {
+      const response = await fetch(snapshotUrl, { cache: "no-store" });
+      if (!response.ok) throw new Error("Snapshot request returned " + response.status);
+      const fresh = await response.json();
+      if (!validSnapshot(fresh)) throw new Error("Snapshot structure is incomplete.");
+      snapshot = fresh;
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify(fresh)); } catch (_) {}
+      setStatus("API SNAPSHOT", "Scheduled championship data · not live timing", fresh.fetchedAt);
+    } catch (error) {
+      if (cached) {
+        snapshot = cached;
+        setStatus("CACHED SNAPSHOT", "Refresh unavailable · showing the last successful snapshot", cached.fetchedAt);
+      } else {
+        setStatus("DATA UNAVAILABLE", "The standings snapshot could not be loaded. Please try again when connected.", null);
+        body.innerHTML = "<tr><td colspan='5'>Standings are temporarily unavailable.</td></tr>";
+        return;
+      }
+    }
+    render();
+  }
+
+  tabs.forEach(tab => tab.addEventListener("click", () => {
+    activeView = tab.dataset.view;
+    tabs.forEach(item => {
+      const selected = item === tab;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-selected", String(selected));
+    });
+    renderTable();
+  }));
+
+  loadSnapshot();
+})();
 </script>
 </body>
 </html>
