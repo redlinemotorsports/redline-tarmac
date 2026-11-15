@@ -5,10 +5,13 @@
 .standings-hero h1 em{color:var(--orange);font-style:normal}
 .standings-intro{max-width:430px;color:#c2c5c4;font-size:12px;line-height:1.8}
 .standings-meta{display:flex;gap:25px;margin-top:28px;padding-top:13px;border-top:1px solid #ffffff26;color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
-.standings-hero-art{position:relative;overflow:hidden;background:radial-gradient(ellipse at 66% 48%,#41474b,#24292d 54%,#1b1f22)}
-.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,transparent,#000 35%);opacity:.4}
-.hero-stage-mark{position:absolute;right:3%;bottom:-64px;color:#ffffff0b;font:390px/.8 var(--display);letter-spacing:-.08em}
-.hero-art-label{position:absolute;right:28px;top:28px;color:#ffffff80;font:9px/1.7 var(--mono);letter-spacing:.16em;text-align:right}
+.standings-hero-art{position:relative;min-height:365px;overflow:hidden;background:#202428}
+.standings-driver-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 35%;filter:saturate(.78) contrast(1.06)}
+.driver-photo-shade{position:absolute;inset:0;background:linear-gradient(90deg,#1b1f22 0%,#1b1f22a8 12%,#15171920 52%,#15171940 100%),linear-gradient(0deg,#151719b8 0%,transparent 38%)}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,transparent,#000 35%);opacity:.25;pointer-events:none}
+.hero-art-label{position:absolute;right:28px;top:28px;color:#ffffffc4;font:9px/1.7 var(--mono);letter-spacing:.16em;text-align:right;text-shadow:0 1px 8px #000}
+.hero-photo-credit{position:absolute;left:22px;bottom:22px;color:#ffffffb8;font:7px var(--mono);letter-spacing:.09em;text-decoration:none;text-shadow:0 1px 8px #000}
+.hero-photo-credit:hover{color:#fff;text-decoration:underline}
 .hero-art-square{position:absolute;right:28px;bottom:28px;width:13px;height:13px;background:var(--orange)}
 .data-status{display:flex;align-items:center;gap:10px;min-height:43px;border-bottom:1px solid var(--line);color:var(--muted);font-size:9px;letter-spacing:.08em}
 .data-status strong{color:var(--orange);font-size:8px;letter-spacing:.14em}
