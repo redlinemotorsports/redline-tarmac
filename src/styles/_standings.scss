@@ -94,3 +94,14 @@
 @media(max-width:760px){.standings-hero{grid-template-columns:1fr;min-height:440px}.standings-hero-art{position:absolute;inset:0 0 0 22%;opacity:.6}.standings-hero-copy{align-self:end;padding:40px 25px}.standings-hero h1{font-size:clamp(76px,14vw,112px)}.standings-meta{flex-wrap:wrap}.data-status{flex-wrap:wrap;padding:11px 0}.status-updated{width:100%;margin-left:16px}.standings-overview{grid-template-columns:1fr 1fr}.overview-lead{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--line)}.overview-stat{min-height:115px}.overview-stat:nth-child(3){border-right:0}.standings-section-head{align-items:start;flex-direction:column}.table-toolbar{align-items:start;flex-direction:column;gap:0}.table-tabs{width:100%}.table-tab{flex:1;padding:13px 7px;font-size:8px}.table-context{padding:10px 0}.battle-grid{grid-template-columns:1fr}.standings-bottom{align-items:start;flex-direction:column;padding:25px 22px}}
 @media(max-width:480px){.standings-hero-copy{padding:35px 20px}.standings-hero h1{font-size:72px}.standings-meta{gap:10px 18px;font-size:7px}.overview-lead h2{font-size:39px}.overview-stat{padding:18px 10px}.overview-stat strong{font-size:21px}.standings-section-head h2{font-size:38px}.battle-chart-panel,.battle-leaderboard{padding:16px}.chart-legend{gap:10px}.chart-legend span{font-size:7px}.points-chart{height:205px}.standings-bottom .primary-action{width:100%;justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.standings-page *{scroll-behavior:auto;transition:none!important}}
+
+/* Live API snapshot presentation */
+.status-light.is-cached{background:#d5a84c;box-shadow:0 0 0 4px #d5a84c24}
+#data-state{white-space:nowrap}
+#data-message{line-height:1.5}
+.overview-stat strong{font-size:clamp(14px,1.65vw,24px);letter-spacing:-.035em;white-space:normal;overflow-wrap:anywhere}
+.battle-lead-name{margin:34px 0 12px;font:400 clamp(34px,5vw,58px)/.9 var(--display);overflow-wrap:anywhere}
+.battle-chart-panel .chart-disclaimer{max-width:430px;color:var(--muted);font-size:10px;line-height:1.8}
+#contenders-list .contender:last-child{border-bottom:0}
+.standings-table .team-cell{text-transform:uppercase}
+@media(max-width:760px){.overview-stat strong{font-size:clamp(16px,4vw,24px)}}
