@@ -136,3 +136,22 @@
 @media(max-width:1000px){.standings-overview{grid-template-columns:1fr 1fr}.overview-lead{border-bottom:1px solid var(--line)}.overview-stat:nth-child(3){border-right:0}.overview-stat:last-child{border-top:1px solid var(--line)}}
 @media(max-width:760px){.standings-overview{grid-template-columns:1fr 1fr}.overview-lead{grid-column:1/-1}.overview-stat{min-height:140px}.table-footer{align-items:flex-start;flex-direction:column;gap:4px}.overview-stat strong{font-size:clamp(17px,4vw,24px)}}
 @media(max-width:480px){.overview-stat{padding:17px 12px}.overview-stat .stat-value b{font-size:30px}.overview-stat strong{font-size:17px}.overview-season{font-size:7px}}
+
+
+/* Compact crew and manufacturer identity treatment */
+.standings-table .competitor-identity strong,
+.standings-table .manufacturer-identity strong{display:block;font-size:11px;letter-spacing:.025em}
+.standings-table .competitor-identity .nationality-line{display:flex;align-items:center;gap:7px;margin-top:6px;color:var(--muted);font:8px var(--mono);letter-spacing:.1em}
+.nationality-flag{display:inline-flex;align-items:center;justify-content:center;min-width:17px;font-family:system-ui,sans-serif;font-size:12px;line-height:1}
+.standings-table .team-identity{display:flex;align-items:center;gap:9px;max-width:250px;white-space:normal}
+.team-mark,.manufacturer-mark{display:inline-flex;flex:0 0 28px;width:28px;height:28px;align-items:center;justify-content:center;border:1px solid #596168;background:#22272b;color:var(--white);font:700 8px var(--mono);letter-spacing:-.04em}
+.team-name{color:var(--muted);font-size:9px;line-height:1.35;letter-spacing:.025em}
+.identity-muted{color:var(--dim);font:7px var(--mono);letter-spacing:.08em}
+.standings-table .manufacturer-identity{display:flex;align-items:center;gap:11px}
+.standings-table .manufacturer-mark{width:32px;height:32px;flex-basis:32px;border-color:#6a7075;color:var(--orange);font-size:9px}
+.standings-table .country-cell{display:flex;align-items:center;gap:8px}
+@media(max-width:650px){
+  .standings-table .team-identity{max-width:160px}
+  .standings-table .team-name{font-size:8px}
+  .standings-table .competitor-identity strong,.standings-table .manufacturer-identity strong{font-size:10px}
+}
