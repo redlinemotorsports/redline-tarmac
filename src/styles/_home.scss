@@ -37,3 +37,29 @@
   .hero-marker{right:15px;bottom:15px;width:10px;height:10px}
   .hero-visual .photo-credit{left:15px;bottom:15px}
 }
+
+
+/* Consistent square markers across Home visual panels */
+.feature-art i,
+.control-art i {
+  top: auto;
+  left: auto;
+  right: 18px;
+  bottom: 18px;
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 0;
+  background: var(--orange);
+  box-shadow: none;
+  transform: none;
+}
+@media(max-width:480px){
+  .feature-art i,
+  .control-art i {
+    right: 15px;
+    bottom: 15px;
+    width: 10px;
+    height: 10px;
+  }
+}
