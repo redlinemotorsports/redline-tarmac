@@ -1,8 +1,10 @@
-name: Deploy Redline Tarmac to GitHub Pages
+name: Refresh WRC standings cache
 
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "20 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +14,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -23,6 +25,11 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Fetch WRC standings snapshot
+        env:
+          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
+          WRC_SEASON: "2026"
+        run: node scripts/fetch-wrc-standings.mjs
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
