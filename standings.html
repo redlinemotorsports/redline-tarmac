@@ -35,21 +35,21 @@
 </section>
 <div class="data-status" id="data-status" aria-live="polite"><span class="status-light"></span><strong id="data-state">LOADING DATA</strong><span id="data-message">Connecting to the latest championship snapshot…</span><span class="status-updated" id="data-updated">LAST UPDATED / —</span></div>
 <section class="standings-overview" aria-label="Championship overview">
-<article class="overview-lead"><span class="data-index">01 / CHAMPIONSHIP SNAPSHOT</span><h2>THE MARGIN<br>IS THE STORY.</h2><p>Championship positions, points and title margins from the latest available WRC standings snapshot.</p></article>
-<div class="overview-stat"><span>DRIVER LEADER</span><strong id="driver-leader">—</strong><small>DRIVERS’ CHAMPIONSHIP</small></div>
-<div class="overview-stat"><span>TITLE MARGIN</span><strong id="title-gap">—</strong><small>LEADER TO SECOND</small></div>
-<div class="overview-stat"><span>MANUFACTURER LEADER</span><strong id="manufacturer-leader">—</strong><small>MANUFACTURERS’ CHAMPIONSHIP</small></div>
+  <article class="overview-lead"><span class="data-index">01 / CHAMPIONSHIP INTELLIGENCE</span><h2>THE TITLE<br><em>PICTURE.</em></h2><p>One snapshot. Three championships. Every margin matters.</p><span class="overview-season" id="overview-season">2026 / WORLD RALLY CHAMPIONSHIP</span></article>
+  <article class="overview-stat overview-driver"><span class="stat-label">DRIVERS’ LEADER</span><strong id="driver-leader">—</strong><div class="stat-value"><b id="driver-points">—</b><i>PTS</i></div><small id="driver-runner-up">SECOND PLACE / —</small></article>
+  <article class="overview-stat overview-margin"><span class="stat-label">TITLE MARGIN</span><div class="stat-value"><b id="title-gap">—</b><i>PTS</i></div><small id="title-gap-caption">LEADER TO SECOND</small><span class="margin-rule"><i id="margin-indicator"></i></span></article>
+  <article class="overview-stat overview-manufacturer"><span class="stat-label">MANUFACTURERS’ LEADER</span><strong id="manufacturer-leader">—</strong><div class="stat-value"><b id="manufacturer-points">—</b><i>PTS</i></div><small id="manufacturer-runner-up">SECOND PLACE / —</small></article>
 </section>
 <section class="standings-section">
-<header class="standings-section-head"><div><p class="eyebrow">01 / CREW PERFORMANCE</p><h2>Drivers &amp; co-drivers</h2></div><span class="section-aside">OVERALL CLASSIFICATION <b>／</b> 2026</span></header>
+<header class="standings-section-head"><div><p class="eyebrow">02 / THE CLASSIFICATION</p><h2>The order of the season.</h2></div><span class="section-aside">OVERALL CLASSIFICATION <b>／</b> 2026</span></header>
 <div class="table-toolbar"><div class="table-tabs" role="tablist" aria-label="Standings category"><button class="table-tab active" role="tab" aria-selected="true" data-view="drivers">DRIVERS</button><button class="table-tab" role="tab" aria-selected="false" data-view="coDrivers">CO-DRIVERS</button><button class="table-tab" role="tab" aria-selected="false" data-view="manufacturers">MANUFACTURERS</button></div><span class="table-context" id="table-context">DRIVERS’ CHAMPIONSHIP / 2026</span></div>
 <div class="standings-table-wrap"><table class="standings-table" id="standings-table"><thead><tr><th class="pos-col">POS</th><th>DRIVER</th><th>COUNTRY</th><th class="numeric">POINTS</th><th class="numeric">GAP</th></tr></thead><tbody id="standings-body"><tr><td colspan="5">Loading championship standings…</td></tr></tbody></table></div>
-<p class="table-footnote"><span>■</span> Source: Blacktop Data WRC API. Snapshot data is updated on the scheduled refresh; this is not live stage timing.</p>
+<div class="table-footer"><p class="table-footnote"><span>■</span> Source: <b id="table-provider">Blacktop Data</b>. Scheduled standings snapshot; not live stage timing.</p><span class="table-count" id="table-count">— ENTRIES</span></div>
 </section>
 <section class="battle-section">
-<header class="standings-section-head"><div><p class="eyebrow">02 / THE TITLE BATTLE</p><h2>Margins make champions.</h2></div><span class="section-aside" id="battle-season">CURRENT DRIVER TOP THREE</span></header>
+<header class="standings-section-head"><div><p class="eyebrow">03 / THE TITLE BATTLE</p><h2>Margins make champions.</h2></div><span class="section-aside" id="battle-season">CURRENT DRIVER TOP THREE</span></header>
 <div class="battle-grid">
-<article class="battle-chart-panel"><div class="panel-topline"><span>THE CHAMPIONSHIP LEAD</span><span id="battle-margin-label">POINTS GAP</span></div><div id="battle-lead-copy"><h2 class="battle-lead-name">Waiting for standings data</h2><p class="chart-disclaimer">The title picture will appear here when the latest snapshot is available.</p></div></article>
+<article class="battle-chart-panel"><div class="panel-topline"><span>THE CHAMPIONSHIP LEAD</span><span id="battle-margin-label">POINTS COMPARISON</span></div><div id="battle-lead-copy"><h2 class="battle-lead-name">Waiting for standings data</h2><p class="chart-disclaimer">The title picture will appear here when the latest snapshot is available.</p></div><div class="battle-comparison" id="battle-comparison" aria-label="Top three driver points comparison"></div></article>
 <aside class="battle-leaderboard"><div class="panel-topline"><span>DRIVER TOP THREE</span><span>POINTS</span></div><div id="contenders-list"><p class="chart-disclaimer">Loading championship positions…</p></div><div class="battle-gap"><span>CHAMPIONSHIP GAP</span><strong id="battle-gap">—</strong><small>FIRST TO SECOND</small></div></aside>
 </div>
 </section>
@@ -91,6 +91,7 @@
     status.message.textContent = message;
     status.updated.textContent = "LAST UPDATED / " + (fetchedAt ? formatDate(fetchedAt) : "—");
     document.querySelector(".status-light").classList.toggle("is-cached", state.includes("CACHED"));
+    document.querySelector(".status-light").classList.toggle("is-backup", state.includes("BACKUP"));
   };
 
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -111,6 +112,8 @@
     const label = activeView === "drivers" ? "DRIVERS’" :
       activeView === "coDrivers" ? "CO-DRIVERS’" : "MANUFACTURERS’";
     document.getElementById("table-context").textContent = label + " CHAMPIONSHIP / " + snapshot.season;
+    document.getElementById("table-count").textContent = rows.length + " ENTRIES";
+    document.getElementById("table-provider").textContent = snapshot.provider || "Verified data provider";
     table.querySelector("thead").innerHTML = isManufacturer
       ? "<tr><th class='pos-col'>POS</th><th>MANUFACTURER</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>"
       : "<tr><th class='pos-col'>POS</th><th>" + (activeView === "drivers" ? "DRIVER" : "CO-DRIVER") + "</th><th>COUNTRY</th><th class='numeric'>POINTS</th><th class='numeric'>GAP</th></tr>";
@@ -131,26 +134,43 @@
   function renderOverview() {
     const drivers = ranking(snapshot.categories.drivers);
     const manufacturers = ranking(snapshot.categories.manufacturers);
-    const driver = drivers[0], second = drivers[1], manufacturer = manufacturers[0];
+    const driver = drivers[0], second = drivers[1], manufacturer = manufacturers[0], manufacturerSecond = manufacturers[1];
+    const driverGap = second ? Math.max(0, points(driver) - points(second)) : null;
+    const manufacturerGap = manufacturerSecond ? Math.max(0, points(manufacturer) - points(manufacturerSecond)) : null;
+    document.getElementById("overview-season").textContent = snapshot.season + " / WORLD RALLY CHAMPIONSHIP";
     document.getElementById("driver-leader").textContent = driver?.name || "—";
-    document.getElementById("title-gap").innerHTML = second
-      ? Math.max(0, points(driver) - points(second)) + " <i>PTS</i>" : "—";
+    document.getElementById("driver-points").textContent = driver ? points(driver) : "—";
+    document.getElementById("driver-runner-up").textContent = second ? "SECOND / " + second.name : "SECOND PLACE / —";
+    document.getElementById("title-gap").textContent = driverGap === null ? "—" : driverGap;
+    document.getElementById("title-gap-caption").textContent = second ? "LEAD OVER " + second.name.toUpperCase() : "LEADER TO SECOND";
+    document.getElementById("margin-indicator").style.width = driverGap === null ? "0%" : Math.min(100, driverGap / Math.max(1, points(driver)) * 100) + "%";
     document.getElementById("manufacturer-leader").textContent = manufacturer?.name || "—";
+    document.getElementById("manufacturer-points").textContent = manufacturer ? points(manufacturer) : "—";
+    document.getElementById("manufacturer-runner-up").textContent = manufacturerSecond
+      ? "SECOND / " + manufacturerSecond.name + " · GAP " + manufacturerGap + " PTS"
+      : "SECOND PLACE / —";
     document.getElementById("battle-season").textContent = snapshot.season + " / DRIVER TOP THREE";
     document.getElementById("battle-lead-copy").innerHTML = driver
-      ? "<h2 class='battle-lead-name'>" + escapeHtml(driver.name) + "</h2><p class='chart-disclaimer'>" +
-        points(driver) + " points · " + escapeHtml(driver.country || "Country unavailable") +
-        ". The current championship leader in the latest available snapshot.</p>"
+      ? "<h2 class='battle-lead-name'>" + escapeHtml(driver.name) + "</h2><p class='chart-disclaimer'>Leading the " +
+        snapshot.season + " drivers’ championship with " + points(driver) + " points" +
+        (second ? " and a " + driverGap + "-point advantage over " + escapeHtml(second.name) : "") +
+        ". Based on the latest available standings snapshot.</p>"
       : "<p class='chart-disclaimer'>Driver standings are unavailable.</p>";
     document.getElementById("contenders-list").innerHTML = drivers.slice(0,3).map((row,index) =>
       "<div class='contender'><span class='contender-pos'>" + String(index+1).padStart(2,"0") +
       "</span><div><strong>" + escapeHtml(row.name) + "</strong><small>" +
       escapeHtml(row.country || "—") + "</small></div><b>" + points(row) + "</b></div>"
     ).join("") || "<p class='chart-disclaimer'>No driver standings available.</p>";
-    document.getElementById("battle-gap").innerHTML = second
-      ? Math.max(0, points(driver) - points(second)) + " <i>PTS</i>" : "—";
+    document.getElementById("battle-gap").textContent = driverGap === null ? "—" : driverGap + " PTS";
+    const topThree = drivers.slice(0,3);
+    const maxPoints = Math.max(1, ...topThree.map(points));
+    document.getElementById("battle-comparison").innerHTML = topThree.map((row,index) =>
+      "<div class='comparison-row'><div class='comparison-label'><span>" +
+      String(index+1).padStart(2,"0") + " / " + escapeHtml(row.name) +
+      "</span><b>" + points(row) + "</b></div><div class='comparison-track'><i class='" +
+      (index === 0 ? "is-leader" : "") + "' style='width:" + (points(row) / maxPoints * 100) + "%'></i></div></div>"
+    ).join("");
   }
-
   function render() {
     renderTable();
     renderOverview();
