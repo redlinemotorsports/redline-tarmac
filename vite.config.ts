@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(process.cwd(), "index.html"),
+        standings: resolve(process.cwd(), "standings.html"),
         rallyControl: resolve(process.cwd(), "rally-control.html")
       }
     }
