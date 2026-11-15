@@ -50,7 +50,7 @@
 
       document.body.innerHTML = parsed.body.innerHTML;
       document.body.dataset.page = nextPage;
-      document.title = parsed.title || "Redline Tarmac";
+      document.title = "Redline Tarmac — Every Stage. Every Second. Every Surface.";
       activePage = nextPage;
 
       const liveScripts = [...document.body.querySelectorAll("script")];
