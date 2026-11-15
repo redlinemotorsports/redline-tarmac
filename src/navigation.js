@@ -16,7 +16,7 @@
 
   const routeFor = url => routes.get(url.pathname);
   const scrollToHash = hash => {
-    if (!hash) { window.scrollTo({ top: 0, behavior: "instant" }); return; }
+    if (!hash) { window.scrollTo({ top: 0, behavior: "auto" }); return; }
     requestAnimationFrame(() => {
       const target = document.getElementById(decodeURIComponent(hash.slice(1)));
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
