@@ -105,3 +105,34 @@
 #contenders-list .contender:last-child{border-bottom:0}
 .standings-table .team-cell{text-transform:uppercase}
 @media(max-width:760px){.overview-stat strong{font-size:clamp(16px,4vw,24px)}}
+
+/* Championship overview refresh */
+.standings-overview{grid-template-columns:1.05fr 1.05fr .72fr 1.2fr;align-items:stretch}
+.overview-lead{display:flex;flex-direction:column;justify-content:center;min-height:190px}
+.overview-lead h2 em{color:var(--orange);font-style:normal}
+.overview-season{margin-top:18px;color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
+.overview-stat{min-width:0;justify-content:center;gap:13px;padding:22px 20px}
+.overview-stat strong{font:500 clamp(16px,1.5vw,23px)/1.05 var(--display);letter-spacing:.015em;white-space:normal;overflow-wrap:anywhere}
+.overview-stat .stat-label{color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.13em}
+.overview-stat .stat-value{display:flex;align-items:baseline;gap:7px}
+.overview-stat .stat-value b{font:600 clamp(27px,3vw,39px)/1 var(--mono);letter-spacing:-.06em}
+.overview-stat .stat-value i{color:var(--orange);font:600 9px var(--mono);font-style:normal}
+.overview-stat small{min-height:22px;color:var(--dim);font:8px/1.5 var(--mono);letter-spacing:.06em;overflow-wrap:anywhere}
+.overview-margin{background:linear-gradient(155deg,#24282b,#1b1f22)}
+.overview-margin .stat-value b{font-size:clamp(38px,4vw,54px);color:var(--white)}
+.margin-rule{display:block;height:3px;background:#ffffff18}
+.margin-rule i{display:block;height:100%;background:var(--orange);transition:width .35s ease}
+.table-footer{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.table-count{color:var(--dim);font:8px var(--mono);letter-spacing:.1em;white-space:nowrap}
+.standings-table .leader-row td{background:linear-gradient(90deg,#ff6a000d,transparent 80%)}
+.standings-table .leader-row td:nth-child(2) strong{color:var(--white)}
+.battle-comparison{display:grid;gap:18px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}
+.comparison-label{display:flex;justify-content:space-between;gap:15px;margin-bottom:8px;color:var(--muted);font:8px var(--mono);letter-spacing:.08em}
+.comparison-label b{color:var(--white);font-size:10px}
+.comparison-track{height:5px;background:#ffffff16}
+.comparison-track i{display:block;height:100%;background:#9299a2}
+.comparison-track i.is-leader{background:var(--orange)}
+.status-light.is-backup{background:#6fa6c9;box-shadow:0 0 0 4px #6fa6c924}
+@media(max-width:1000px){.standings-overview{grid-template-columns:1fr 1fr}.overview-lead{border-bottom:1px solid var(--line)}.overview-stat:nth-child(3){border-right:0}.overview-stat:last-child{border-top:1px solid var(--line)}}
+@media(max-width:760px){.standings-overview{grid-template-columns:1fr 1fr}.overview-lead{grid-column:1/-1}.overview-stat{min-height:140px}.table-footer{align-items:flex-start;flex-direction:column;gap:4px}.overview-stat strong{font-size:clamp(17px,4vw,24px)}}
+@media(max-width:480px){.overview-stat{padding:17px 12px}.overview-stat .stat-value b{font-size:30px}.overview-stat strong{font-size:17px}.overview-season{font-size:7px}}
