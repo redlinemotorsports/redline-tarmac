@@ -10,15 +10,15 @@
 <link rel="stylesheet" href="./src/styles/main.scss">
 <title>Redline Tarmac — Every Stage. Every Second. Every Surface.</title>
 <style>
-.newsroom{--nr-line:#383e43;--nr-muted:#a0a5a7;--nr-dim:#747c80;max-width:1320px;margin:auto;padding:0 32px 72px}
-.nr-mast{display:flex;justify-content:space-between;align-items:end;padding:30px 0 22px;border-bottom:1px solid var(--nr-line);gap:20px}
+.newsroom{--nr-line:var(--line);--nr-muted:var(--muted);--nr-dim:var(--dim);padding:0 0 72px}
+.nr-mast{display:none}
 .nr-kicker,.nr-meta,.nr-label{font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:var(--nr-muted)}
 .nr-brand{font:clamp(42px,7vw,82px)/.86 'Bebas Neue',sans-serif;letter-spacing:.015em;margin:8px 0 0}
 .nr-brand em,.nr-lead h2 em{color:#ff6a00;font-style:normal}
 .nr-tagline{font-size:11px;letter-spacing:.13em;color:var(--nr-muted);text-align:right}
-.nr-nav{display:flex;gap:26px;align-items:center;min-height:58px;border-bottom:1px solid var(--nr-line);overflow:auto}
-.nr-nav a{white-space:nowrap;color:var(--nr-muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.nr-nav a.active{color:#f3f1ec;border-bottom:2px solid #ff6a00;padding:22px 0 20px}
+.nr-nav{display:none}
+.nr-nav a{display:none}
+.nr-nav a.active{display:none}
 .nr-lead{display:grid;grid-template-columns:1.25fr .75fr;min-height:410px;margin-top:28px;border:1px solid var(--nr-line);background:#1d2023}
 .nr-lead-image{position:relative;min-height:320px;overflow:hidden}
 .nr-lead-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:grayscale(1) contrast(1.08);opacity:.82}
@@ -45,19 +45,19 @@
 .nr-docs article{border-left:2px solid #ff6a00;padding-left:18px}
 .nr-docs h4{font:24px 'Bebas Neue',sans-serif;margin:8px 0}
 .nr-foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--nr-line);padding-top:20px;margin-top:54px;color:var(--nr-dim);font:8px 'IBM Plex Mono',monospace;letter-spacing:.12em}
-@media(max-width:760px){.newsroom{padding:0 18px 48px}.nr-mast{align-items:start;flex-direction:column}.nr-tagline{text-align:left}.nr-lead,.nr-desk,.nr-docs{grid-template-columns:1fr}.nr-lead-image{min-height:250px}.nr-lead-copy{padding:28px 24px}.nr-section-head{align-items:start;flex-direction:column}.nr-nav{gap:18px}}
+@media(max-width:760px){.newsroom{padding:0 0 48px}.nr-lead,.nr-desk,.nr-docs{grid-template-columns:1fr}.nr-lead-image{min-height:250px}.nr-lead-copy{padding:28px 24px}.nr-section-head{align-items:start;flex-direction:column}}
 </style>
 </head>
 <body data-page="newsroom">
-<div class="newsroom">
-<header class="nr-mast">
-<div><div class="nr-kicker">REDLINE MOTORSPORTS / EDITORIAL DESK</div><h1 class="nr-brand">TARMAC <em>DISPATCH.</em></h1></div>
-<div class="nr-tagline">THE RALLY WORLD,<br>REPORTED.</div>
+<div class="shell">
+<header class="masthead">
+<a class="identity" href="./"><span class="monogram">RT</span><span class="wordmark"><strong>REDLINE TARMAC</strong><small>EVERY STAGE. EVERY SECOND.</small></span></a>
+<nav class="primary-nav" aria-label="Main navigation"><a href="./"><i>01</i>Home</a><a href="./standings.html"><i>02</i>Standings</a><a href="./rally-control.html"><i>03</i>Rally Control</a><a href="./#data-centre"><i>04</i>Data Centre</a><a class="active" href="./newsroom.html" aria-current="page"><i>05</i>Newsroom</a></nav>
+<span class="prototype">PROTOTYPE</span>
 </header>
-<nav class="nr-nav" aria-label="Main navigation">
-<a href="./">Home</a><a href="./standings.html">Standings</a><a href="./rally-control.html">Rally Control</a><a href="./#data-centre">Data Centre</a><a class="active" href="./newsroom.html" aria-current="page">Newsroom</a>
-</nav>
-<div class="nr-kicker" style="margin-top:22px">DISPATCH 001 <span style="color:#ff6a00">/</span> THE EDITORIAL DESK</div>
+<div class="kicker">REDLINE MOTORSPORTS <b>／</b> EDITORIAL DESK <b>／</b> TARMAC DISPATCH</div>
+<main class="newsroom">
+<div class="nr-kicker" style="margin-top:8px">DISPATCH 001 <span style="color:#ff6a00">/</span> THE EDITORIAL DESK</div>
 <section class="nr-lead">
 <div class="nr-lead-image"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg/1280px-2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg" alt="Hyundai Motorsport team celebrating its Rally de Portugal 2018 victory"><a class="nr-image-credit" href="https://commons.wikimedia.org/wiki/File:2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg" target="_blank" rel="noopener">PHOTO / HELENA EL MOKNI · CC BY-SA 4.0</a></div>
 <div class="nr-lead-copy"><span class="nr-stamp">THE TARMAC DISPATCH / LAUNCH EDITION</span><h2>THE RALLY WORLD.<br><em>IN FOCUS.</em></h2><p>A dedicated desk for the stories behind the stages — championship developments, crew moves, manufacturer programmes, technical insight and official decisions.</p><div class="nr-meta">INDEPENDENT RALLY EDITORIAL / REDLINE TARMAC</div></div>
@@ -77,6 +77,7 @@
 </div>
 </section>
 <footer class="nr-foot"><span>RT / REDLINE TARMAC</span><span>EVERY STAGE. EVERY SECOND. EVERY SURFACE.</span><span>EDITORIAL DESK / SOURCES WILL BE ATTRIBUTED</span></footer>
+</main>
 </div>
 <script type="module" src="./src/navigation.js"></script>
 </body></html>
