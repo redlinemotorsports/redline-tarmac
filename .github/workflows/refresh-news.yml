@@ -1,0 +1,37 @@
+name: Refresh Tarmac Dispatch news
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tarmac-dispatch-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch verified rally headlines
+        run: node scripts/fetch-rally-news.mjs
+      - name: Commit updated news snapshot
+        run: |
+          if git diff --quiet -- public/data/rally-news.json; then
+            echo "No newsroom changes to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/rally-news.json
+          git commit -m "Refresh Tarmac Dispatch news snapshot"
+          git push

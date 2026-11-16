@@ -19,4 +19,8 @@ jobs:
       - run: npm install
       - run: node --check scripts/fetch-rally-news.mjs
       - run: node --check src/newsroom-feed.js
+      - name: Verify live rally feed ingestion
+        run: |
+          node scripts/fetch-rally-news.mjs
+          node -e 'const s=require("./public/data/rally-news.json"); if (!s.articles.length || !s.sources.some(x => x.status === "ok")) process.exit(1); console.log(`Verified ${s.articles.length} headlines from ${s.sources.filter(x => x.status === "ok").length} online feeds.`);'
       - run: npm run build
