@@ -9,3 +9,5 @@ All photographs are displayed with attribution and linked to their source and li
 4. **Elfyn Evans, Toyota GR Yaris Rally1, 2026 Rally Sardegna power stage** — Cardoesvroom. [Source](https://commons.wikimedia.org/wiki/File:Elfyn_Evans_Rally_Sardegna_2026.jpg) · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Used as a cropped Standings hero photograph with the site-wide grayscale treatment.
 
 5. **Kalle Rovanperä / Jonne Halttunen, Toyota GR Yaris Rally1 Hybrid, 2023 Central European Rally** — Miloslav Rejha. [Source](https://commons.wikimedia.org/wiki/File:2023_Central_European_Rally_-_Rovanper%C3%A4_03.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used as a cropped Home hero photograph; no other image edits.
+
+6. **Hyundai Motorsport team celebrating victory at Rally de Portugal 2018** — Helena El Mokni. [Source](https://commons.wikimedia.org/wiki/File:2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Used as the Tarmac Dispatch hero photograph with the page’s grayscale treatment.
