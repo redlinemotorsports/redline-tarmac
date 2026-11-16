@@ -18,7 +18,7 @@ const decode = value => value
   .trim();
 
 function tag(block, name) {
-  const match = block.match(new RegExp("<" + name + "(?:\s[^>]*)?>([\s\S]*?)</" + name + ">", "i"));
+  const match = block.match(new RegExp("<" + name + "(?:\\s[^>]*)?>([\\s\\S]*?)</" + name + ">", "i"));
   return match ? decode(match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")) : "";
 }
 
@@ -72,7 +72,7 @@ const combined = [...freshArticles, ...previous].filter(item => {
   return !Number.isFinite(timestamp) || timestamp >= cutoff;
 });
 const deduped = [...new Map(combined.map(item => [item.url, item])).values()]
-  .sort((a, b) => (Date.parse(b.publishedAt || "") || 0) - (Date.parse(a.publishedAt || "") || 0)
+  .sort((a, b) => (Date.parse(b.publishedAt || "") || 0) - (Date.parse(a.publishedAt || "") || 0))
   .slice(0, 60);
 
 await mkdir("public/data", { recursive: true });
