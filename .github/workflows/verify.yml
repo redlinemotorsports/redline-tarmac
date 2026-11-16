@@ -17,4 +17,6 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - run: node --check scripts/fetch-rally-news.mjs
+      - run: node --check src/newsroom-feed.js
       - run: npm run build
