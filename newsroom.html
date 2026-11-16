@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#151719">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2">
+<meta name="description" content="Tarmac Dispatch — verified rally news, analysis and championship developments from Redline Tarmac.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/styles/main.scss">
+<title>Redline Tarmac — Every Stage. Every Second. Every Surface.</title>
+<style>
+.newsroom{--nr-line:#383e43;--nr-muted:#a0a5a7;--nr-dim:#747c80;max-width:1320px;margin:auto;padding:0 32px 72px}
+.nr-mast{display:flex;justify-content:space-between;align-items:end;padding:30px 0 22px;border-bottom:1px solid var(--nr-line);gap:20px}
+.nr-kicker,.nr-meta,.nr-label{font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:var(--nr-muted)}
+.nr-brand{font:clamp(42px,7vw,82px)/.86 'Bebas Neue',sans-serif;letter-spacing:.015em;margin:8px 0 0}
+.nr-brand em,.nr-lead h2 em{color:#ff6a00;font-style:normal}
+.nr-tagline{font-size:11px;letter-spacing:.13em;color:var(--nr-muted);text-align:right}
+.nr-nav{display:flex;gap:26px;align-items:center;min-height:58px;border-bottom:1px solid var(--nr-line);overflow:auto}
+.nr-nav a{white-space:nowrap;color:var(--nr-muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.nr-nav a.active{color:#f3f1ec;border-bottom:2px solid #ff6a00;padding:22px 0 20px}
+.nr-lead{display:grid;grid-template-columns:1.25fr .75fr;min-height:410px;margin-top:28px;border:1px solid var(--nr-line);background:#1d2023}
+.nr-lead-image{position:relative;min-height:320px;overflow:hidden}
+.nr-lead-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:grayscale(1) contrast(1.08);opacity:.82}
+.nr-lead-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,#1d2023 100%),linear-gradient(0deg,#15171955,transparent 50%)}
+.nr-image-credit{position:absolute;z-index:1;bottom:15px;left:18px;font:8px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#eee}
+.nr-lead-copy{padding:42px 38px;display:flex;flex-direction:column;justify-content:center}
+.nr-lead h2{font:clamp(40px,5vw,66px)/.92 'Bebas Neue',sans-serif;margin:18px 0}
+.nr-lead-copy p{font-size:13px;line-height:1.8;color:var(--nr-muted);max-width:440px}
+.nr-stamp{display:inline-flex;align-items:center;gap:9px;font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#ff6a00}
+.nr-stamp:before{content:"";width:8px;height:8px;background:#ff6a00;display:block}
+.nr-section-head{display:flex;justify-content:space-between;align-items:end;margin:54px 0 18px;border-bottom:1px solid var(--nr-line);padding-bottom:14px;gap:15px}
+.nr-section-head h3{font:38px/.95 'Bebas Neue',sans-serif;margin:8px 0 0}
+.nr-section-head span{font:9px 'IBM Plex Mono',monospace;color:var(--nr-dim);letter-spacing:.12em}
+.nr-desk{display:grid;grid-template-columns:1.35fr .65fr;gap:16px}
+.nr-empty,.nr-side,.nr-docs{border:1px solid var(--nr-line);background:#1d2023;padding:26px}
+.nr-empty{min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.nr-empty h4{font:34px 'Bebas Neue',sans-serif;margin:12px 0}
+.nr-empty p,.nr-side p,.nr-docs p{font-size:12px;line-height:1.75;color:var(--nr-muted);max-width:560px}
+.nr-side{display:flex;flex-direction:column;justify-content:space-between}
+.nr-side strong{font:26px 'Bebas Neue',sans-serif}
+.nr-categories{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.nr-categories span{border:1px solid var(--nr-line);padding:9px 11px;font:9px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--nr-muted)}
+.nr-docs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.nr-docs article{border-left:2px solid #ff6a00;padding-left:18px}
+.nr-docs h4{font:24px 'Bebas Neue',sans-serif;margin:8px 0}
+.nr-foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--nr-line);padding-top:20px;margin-top:54px;color:var(--nr-dim);font:8px 'IBM Plex Mono',monospace;letter-spacing:.12em}
+@media(max-width:760px){.newsroom{padding:0 18px 48px}.nr-mast{align-items:start;flex-direction:column}.nr-tagline{text-align:left}.nr-lead,.nr-desk,.nr-docs{grid-template-columns:1fr}.nr-lead-image{min-height:250px}.nr-lead-copy{padding:28px 24px}.nr-section-head{align-items:start;flex-direction:column}.nr-nav{gap:18px}}
+</style>
+</head>
+<body data-page="newsroom">
+<div class="newsroom">
+<header class="nr-mast">
+<div><div class="nr-kicker">REDLINE MOTORSPORTS / EDITORIAL DESK</div><h1 class="nr-brand">TARMAC <em>DISPATCH.</em></h1></div>
+<div class="nr-tagline">THE RALLY WORLD,<br>REPORTED.</div>
+</header>
+<nav class="nr-nav" aria-label="Main navigation">
+<a href="./">Home</a><a href="./standings.html">Standings</a><a href="./rally-control.html">Rally Control</a><a href="./#data-centre">Data Centre</a><a class="active" href="./newsroom.html" aria-current="page">Newsroom</a>
+</nav>
+<div class="nr-kicker" style="margin-top:22px">DISPATCH 001 <span style="color:#ff6a00">/</span> THE EDITORIAL DESK</div>
+<section class="nr-lead">
+<div class="nr-lead-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/2023_Central_European_Rally_-_Rovanp%C3%A4%C3%A4_03.jpg/1280px-2023_Central_European_Rally_-_Rovanp%C3%A4%C3%A4_03.jpg" alt="Toyota GR Yaris Rally1 on a rally stage"><span class="nr-image-credit">PHOTO / MILOSLAV REJHA · CC BY 4.0</span></div>
+<div class="nr-lead-copy"><span class="nr-stamp">THE TARMAC DISPATCH / LAUNCH EDITION</span><h2>THE RALLY WORLD.<br><em>IN FOCUS.</em></h2><p>A dedicated desk for the stories behind the stages — championship developments, crew moves, manufacturer programmes, technical insight and official decisions.</p><div class="nr-meta">INDEPENDENT RALLY EDITORIAL / REDLINE TARMAC</div></div>
+</section>
+<section>
+<header class="nr-section-head"><div><div class="nr-kicker">01 / THE NEWSROOM</div><h3>Latest dispatches</h3></div><span>VERIFIED REPORTING ONLY</span></header>
+<div class="nr-desk">
+<article class="nr-empty"><div><div class="nr-stamp">EDITORIAL FEED / STANDBY</div><h4>THE NEXT STORY STARTS HERE.</h4><p>No dispatches have been published yet. This desk will carry sourced reporting and clearly attributed championship updates once the editorial feed is connected.</p></div><div class="nr-meta">NO UNVERIFIED HEADLINES · NO FABRICATED UPDATES</div></article>
+<aside class="nr-side"><div><div class="nr-kicker">THE BRIEFING BOARD</div><strong>What we cover.</strong><p>From the service park to the stewards’ room, every story needs a source and a reason to matter.</p></div><div class="nr-categories"><span>CHAMPIONSHIP</span><span>CREWS</span><span>MANUFACTURERS</span><span>TECHNICAL</span><span>RALLY REPORTS</span></div></aside>
+</div>
+</section>
+<section>
+<header class="nr-section-head"><div><div class="nr-kicker">02 / DOCUMENT ROOM</div><h3>Official word.</h3></div><span>PRIMARY SOURCES FIRST</span></header>
+<div class="nr-docs">
+<article><div class="nr-kicker">FIA / STEWARDS</div><h4>Bulletins & decisions</h4><p>Stewards’ decisions, technical bulletins and official championship communications. Documents will be linked to their original source.</p></article>
+<article><div class="nr-kicker">CHAMPIONSHIP / ORGANISER</div><h4>Official announcements</h4><p>Confirmed calendar notices, event information and championship statements — separated from independent analysis.</p></article>
+</div>
+</section>
+<footer class="nr-foot"><span>RT / REDLINE TARMAC</span><span>EVERY STAGE. EVERY SECOND. EVERY SURFACE.</span><span>EDITORIAL DESK / SOURCES WILL BE ATTRIBUTED</span></footer>
+</div>
+<script type="module" src="./src/navigation.js"></script>
+</body></html>
