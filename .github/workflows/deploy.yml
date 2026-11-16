@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Fetch rally newsroom headlines
+        run: node scripts/fetch-rally-news.mjs
       - name: Fetch WRC standings snapshot
         env:
           BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}

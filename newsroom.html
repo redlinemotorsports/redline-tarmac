@@ -44,6 +44,30 @@
 .nr-docs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .nr-docs article{border-left:2px solid #ff6a00;padding-left:18px}
 .nr-docs h4{font:24px 'Bebas Neue',sans-serif;margin:8px 0}
+
+.nr-feed-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(240px,.55fr);gap:16px;align-items:start}
+.nr-feed-panel{border:1px solid var(--nr-line);background:#1d2023;min-width:0}
+.nr-feed-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:17px 20px;border-bottom:1px solid var(--nr-line);font:600 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--nr-muted)}
+.nr-feed{display:grid;grid-template-columns:1fr 1fr}
+.nr-story{padding:22px 20px;border-bottom:1px solid var(--nr-line);min-width:0}
+.nr-story:nth-child(odd){border-right:1px solid var(--nr-line)}
+.nr-story-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:600 8px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--nr-dim)}
+.nr-story-source{color:#ff6a00}
+.nr-story h4{font:25px/1.05 'Bebas Neue',sans-serif;margin:18px 0 22px}
+.nr-story h4 a{color:var(--text);text-decoration:none}
+.nr-story h4 a:hover{color:#ff6a00}
+.nr-story-footer{font:8px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--nr-dim)}
+.nr-feed-empty{grid-column:1/-1;padding:32px 24px;min-height:180px;display:flex;flex-direction:column;justify-content:center}
+.nr-feed-empty strong{font:27px/1.05 'Bebas Neue',sans-serif}
+.nr-feed-empty p{font-size:11px;line-height:1.7;color:var(--nr-muted);max-width:430px}
+.nr-sources{border:1px solid var(--nr-line);background:#1d2023;padding:24px}
+.nr-sources h4{font:27px 'Bebas Neue',sans-serif;margin:9px 0 16px}
+.nr-source-link{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--nr-line);color:var(--text);text-decoration:none;font-size:11px}
+.nr-source-link span{font:8px 'IBM Plex Mono',monospace;color:var(--nr-dim);white-space:nowrap}
+.nr-source-link:hover{color:#ff6a00}
+.nr-source-note{font-size:10px;line-height:1.7;color:var(--nr-muted);margin-top:18px}
+@media(max-width:760px){.nr-feed-layout{grid-template-columns:1fr}.nr-feed{grid-template-columns:1fr}.nr-story:nth-child(odd){border-right:0}}
+
 .nr-foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--nr-line);padding-top:20px;margin-top:54px;color:var(--nr-dim);font:8px 'IBM Plex Mono',monospace;letter-spacing:.12em}
 @media(max-width:760px){.newsroom{padding:0 0 48px}.nr-lead,.nr-desk,.nr-docs{grid-template-columns:1fr}.nr-lead-image{min-height:250px}.nr-lead-copy{padding:28px 24px}.nr-section-head{align-items:start;flex-direction:column}}
 </style>
@@ -64,9 +88,21 @@
 </section>
 <section>
 <header class="nr-section-head"><div><div class="nr-kicker">01 / THE NEWSROOM</div><h3>Latest dispatches</h3></div><span>VERIFIED REPORTING ONLY</span></header>
-<div class="nr-desk">
-<article class="nr-empty"><div><div class="nr-stamp">EDITORIAL FEED / STANDBY</div><h4>THE NEXT STORY STARTS HERE.</h4><p>No dispatches have been published yet. This desk will carry sourced reporting and clearly attributed championship updates once the editorial feed is connected.</p></div><div class="nr-meta">NO UNVERIFIED HEADLINES · NO FABRICATED UPDATES</div></article>
-<aside class="nr-side"><div><div class="nr-kicker">THE BRIEFING BOARD</div><strong>What we cover.</strong><p>From the service park to the stewards’ room, every story needs a source and a reason to matter.</p></div><div class="nr-categories"><span>CHAMPIONSHIP</span><span>CREWS</span><span>MANUFACTURERS</span><span>TECHNICAL</span><span>RALLY REPORTS</span></div></aside>
+<div class="nr-feed-layout">
+<div class="nr-feed-panel">
+<div class="nr-feed-top"><span id="nr-feed-status">CONNECTING TO SOURCES</span><span id="nr-feed-updated">CHECKING LATEST SNAPSHOT</span></div>
+<div class="nr-feed" id="nr-feed" aria-live="polite"><div class="nr-feed-empty"><strong>LOADING THE DISPATCHES.</strong><p>Checking verified rally news sources.</p></div></div>
+</div>
+<aside class="nr-sources"><div class="nr-kicker">THE SOURCE NETWORK</div><h4>Follow the original story.</h4>
+<a class="nr-source-link" href="https://www.wrc.com/en/news" target="_blank" rel="noopener noreferrer">WRC / Official news <span>OFFICIAL ↗</span></a>
+<a class="nr-source-link" href="https://www.fia.com/media-center/press_release/name/WRC" target="_blank" rel="noopener noreferrer">FIA / Media centre <span>OFFICIAL ↗</span></a>
+<a class="nr-source-link" href="https://newsroom.toyota.eu/wrc" target="_blank" rel="noopener noreferrer">Toyota / WRC newsroom <span>TEAM ↗</span></a>
+<a class="nr-source-link" href="https://motorsport.hyundai.com/media-center/overview" target="_blank" rel="noopener noreferrer">Hyundai / Media centre <span>TEAM ↗</span></a>
+<a class="nr-source-link" href="https://www.m-sport.co.uk/news" target="_blank" rel="noopener noreferrer">M-Sport / News <span>TEAM ↗</span></a>
+<a class="nr-source-link" href="https://www.autosport.com/wrc/news/" target="_blank" rel="noopener noreferrer">Autosport / WRC desk <span>INDEPENDENT ↗</span></a>
+<a class="nr-source-link" href="https://dirtfish.com/rally/wrc/" target="_blank" rel="noopener noreferrer">DirtFish / WRC desk <span>INDEPENDENT ↗</span></a>
+<p class="nr-source-note">Headlines link directly to their publishers. Tarmac Dispatch does not republish full articles or third-party photography. Official statements and independent reporting are labelled separately.</p>
+</aside>
 </div>
 </section>
 <section>
@@ -79,5 +115,6 @@
 <footer class="nr-foot"><span>RT / REDLINE TARMAC</span><span>EVERY STAGE. EVERY SECOND. EVERY SURFACE.</span><span>EDITORIAL DESK / SOURCES WILL BE ATTRIBUTED</span></footer>
 </main>
 </div>
+<script type="module" src="./src/newsroom-feed.js"></script>
 <script type="module" src="./src/navigation.js"></script>
 </body></html>
