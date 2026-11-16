@@ -60,9 +60,10 @@ const sourceStatus = sources.map((source, index) => ({
 }));
 const outputPath = "public/data/rally-news.json";
 let previous = [];
+let previousSnapshot = null;
 try {
-  const oldSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
-  previous = Array.isArray(oldSnapshot.articles) ? oldSnapshot.articles : [];
+  previousSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
+  previous = Array.isArray(previousSnapshot.articles) ? previousSnapshot.articles : [];
 } catch {}
 
 const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
