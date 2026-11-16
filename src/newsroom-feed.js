@@ -66,8 +66,10 @@ async function loadNews() {
     } else {
       articles.forEach(article => feed.append(renderArticle(article)));
     }
-    const ready = (snapshot.sources || []).filter(source => source.status === "ok").length;
-    status.textContent = articles.length + " HEADLINES / " + ready + " FEEDS ONLINE";
+    const sources = snapshot.sources || [];
+    const ready = sources.filter(source => source.status === "ok").length;
+    const countLabel = sources.length + " SOURCE FEEDS / " + ready + " ONLINE";
+    status.textContent = articles.length + " HEADLINES / " + countLabel;
     updated.textContent = snapshot.updatedAt ? "UPDATED " + formatDate(snapshot.updatedAt) : "UPDATE TIME UNAVAILABLE";
   } catch (error) {
     renderMessage("THE EDITORIAL FEED IS TEMPORARILY UNAVAILABLE.");
