@@ -67,10 +67,10 @@ const deduped = [...new Map(articles.map(item => [item.url, item])).values()]
 
 await mkdir("public/data", { recursive: true });
 const outputPath = "public/data/rally-news.json";
-if (successfulSources === 0) {
+if (successfulSources === 0 || deduped.length === 0) {
   try {
     await readFile(outputPath, "utf8");
-    console.warn("All rally news feeds were unavailable; preserving the previous snapshot.");
+    console.warn("No usable rally headlines were returned; preserving the previous snapshot.");
     process.exit(0);
   } catch {}
 }
