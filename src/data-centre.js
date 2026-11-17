@@ -118,7 +118,7 @@ function renderOverview() {
   set("#dc-season", String(snapshot.season || "WRC"));
   set("#dc-entry-count", formatNumber(total));
   set("#dc-title-gap", gap === null ? "—" : formatNumber(gap) + " PTS");
-  set("#dc-title-gap-caption", drivers.length > 1 ? "ELFYN? NO — LEADER TO " + String(drivers[1].name || "SECOND").toUpperCase() : "DRIVERS’ LEADER TO SECOND");
+  set("#dc-title-gap-caption", drivers.length > 1 ? "LEADER TO " + String(drivers[1].name || "SECOND").toUpperCase() : "DRIVERS’ LEADER TO SECOND");
   set("#dc-coverage-entries", "3 CATEGORIES / " + total + " ENTRIES");
   setStatus("API SNAPSHOT", "Verified championship standings · scheduled refresh, not live timing", snapshot.fetchedAt);
 }
@@ -152,6 +152,7 @@ function bindControls() {
 
 async function loadDataCentre() {
   if (!document.querySelector(".data-centre-page")) return;
+  bindControls();
   snapshot = null;
   calendar = null;
   try {
@@ -192,7 +193,4 @@ async function loadDataCentre() {
 }
 
 window.initTarmacDataCentre = loadDataCentre;
-if (document.body.dataset.page === "data-centre") {
-  bindControls();
-  loadDataCentre();
-}
+if (document.body.dataset.page === "data-centre") loadDataCentre();
