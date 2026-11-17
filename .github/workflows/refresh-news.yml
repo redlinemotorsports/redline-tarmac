@@ -26,7 +26,7 @@ jobs:
         run: node scripts/fetch-rally-news.mjs
       - name: Commit updated news snapshot
         run: |
-          if git diff --quiet -- public/data/rally-news.json; then
+          if [ -z "$(git status --porcelain -- public/data/rally-news.json)" ]; then
             echo "No newsroom changes to publish."
             exit 0
           fi
