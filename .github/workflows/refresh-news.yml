@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,3 +36,7 @@ jobs:
           git add public/data/rally-news.json
           git commit -m "Refresh Tarmac Dispatch news snapshot"
           git push
+      - name: Publish refreshed newsroom to GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
