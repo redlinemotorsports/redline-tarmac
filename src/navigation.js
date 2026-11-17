@@ -27,6 +27,7 @@
   async function activate(url, nextPage) {
     if (loading || nextPage === activePage && !url.hash) return;
     if (nextPage === activePage && url.hash) { scrollToHash(url.hash); return; }
+    const reinitializeNewsroom = nextPage === "newsroom" && typeof window.initTarmacNewsroom === "function";
     loading = true;
     document.body.setAttribute("aria-busy", "true");
     try {
@@ -78,6 +79,7 @@
           oldScript.replaceWith(script);
         }
       }
+      if (reinitializeNewsroom) window.initTarmacNewsroom();
       scrollToHash(url.hash);
     } catch (error) {
       console.error("Redline Tarmac section navigation failed; using normal page navigation.", error);
