@@ -36,3 +36,15 @@
 @media(max-width:900px){.rally-hero{grid-template-columns:1fr .8fr}.rally-hero-copy{padding-left:32px}.rally-hero h1{font-size:clamp(68px,9vw,96px)}}
 @media(max-width:760px){.rally-hero{grid-template-columns:1fr;min-height:450px}.rally-hero-art{position:absolute;inset:0 0 0 18%;min-height:100%;opacity:.66}.rally-hero-copy{align-self:end;padding:42px 25px}.rally-hero h1{font-size:clamp(70px,13vw,94px)}.rally-status{align-items:flex-start;flex-wrap:wrap;padding:12px 0}.rally-status span:last-child{flex-basis:100%;padding-left:17px}.rally-overview>div{padding:15px 10px 15px 0}.rally-overview>div+div{padding-left:12px}.rally-overview strong{font-size:13px}.rally-section-head{align-items:flex-start;flex-direction:column;gap:8px}.rally-section-head h2{font-size:36px}footer{flex-wrap:wrap}}
 @media(max-width:480px){.rally-hero-copy{padding:36px 20px}.rally-hero h1{font-size:66px}.rally-hero-meta{gap:9px 14px;font-size:7px}.rally-photo-label{top:16px;right:14px;font-size:7px}.rally-photo-credit{left:15px;bottom:15px}.rally-hero-marker{right:15px;bottom:15px;width:10px;height:10px}.rally-overview{grid-template-columns:1fr 1fr}.rally-overview>div{padding:13px 10px 13px 0}.rally-overview>div+div{padding-left:12px}.rally-overview>div:nth-child(2){border-right:0}.rally-overview>div:last-child{grid-column:1/-1;border-top:1px solid var(--line);padding-left:0}.rally-empty-row{grid-template-columns:32px 1fr;gap:10px}.rally-results-section,.rally-notices{margin-top:38px}}
+
+.rally-calendar-meta{display:flex;justify-content:space-between;gap:12px;padding:0 0 12px;color:var(--muted);font:8px var(--mono);letter-spacing:.11em}
+.rally-event-list{border-top:1px solid var(--line)}
+.rally-event-row{display:grid;grid-template-columns:54px minmax(0,1fr) 130px 100px;align-items:center;gap:15px;min-height:70px;border-bottom:1px solid var(--line)}
+.rally-event-round{color:var(--orange);font:11px var(--mono)}
+.rally-event-details{display:flex;flex-direction:column;gap:5px;min-width:0}
+.rally-event-details strong{font-size:11px;font-weight:700}
+.rally-event-details span{color:var(--muted);font-size:9px}
+.rally-event-dates{color:#c6c9c8;font:9px var(--mono)}
+.rally-event-phase{justify-self:end;color:var(--muted);font:8px var(--mono);letter-spacing:.1em}
+@media(max-width:760px){.rally-event-row{grid-template-columns:38px minmax(0,1fr) 90px;gap:10px;padding:12px 0}.rally-event-phase{grid-column:2/-1;justify-self:start}.rally-event-dates{font-size:8px}.rally-calendar-meta{font-size:7px}}
+@media(max-width:480px){.rally-calendar-meta{flex-direction:column}.rally-event-row{grid-template-columns:30px minmax(0,1fr);gap:8px}.rally-event-dates{grid-column:2}.rally-event-phase{grid-column:2}}

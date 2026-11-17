@@ -27,6 +27,11 @@ jobs:
       - run: npm install
       - name: Fetch rally newsroom headlines
         run: node scripts/fetch-rally-news.mjs
+      - name: Fetch WRC Rally Control calendar
+        env:
+          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
+          WRC_SEASON: "2026"
+        run: node scripts/fetch-rally-control.mjs
       - name: Fetch WRC standings snapshot
         env:
           BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
