@@ -22,31 +22,6 @@ function tag(block, name) {
   return match ? decode(match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")) : "";
 }
 
-function imageFromBlock(block, sourceUrl) {
-  const candidates = [];
-  const add = value => {
-    if (!value) return;
-    const cleaned = decode(value.trim().replace(/^["']|["']$/g, ""));
-    try {
-      const url = new URL(cleaned, sourceUrl);
-      if (url.protocol === "https:" && !candidates.includes(url.href)) candidates.push(url.href);
-    } catch {}
-  };
-
-  // Prefer explicit RSS/Atom image metadata.
-  for (const match of block.matchAll(/<(?:media:content|media:thumbnail|enclosure)\b([^>]*)\/?\s*>/gi)) {
-    const attrs = match[1];
-    const type = (attrs.match(/\btype=["']([^"']+)["']/i) || [])[1] || "";
-    const url = (attrs.match(/\burl=["']([^"']+)["']/i) || [])[1];
-    if (url && (!type || type.startsWith("image/") || /\.(?:jpe?g|png|webp|avif)(?:[?#]|$)/i.test(url))) add(url);
-  }
-
-  // Some publishers put their thumbnail only inside the encoded description/content.
-  const html = decode(block);
-  for (const match of html.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["']/gi)) add(match[1]);
-  return candidates[0] || null;
-}
-
 function parseFeed(xml, source) {
   const blocks = [...xml.matchAll(/<(?:item|entry)\b[^>]*>([\s\S]*?)<\/(?:item|entry)>/gi)];
   return blocks.map(([, block]) => {
@@ -62,16 +37,13 @@ function parseFeed(xml, source) {
     const parsedDate = publishedAt ? new Date(publishedAt) : null;
     const date = parsedDate && !Number.isNaN(parsedDate.valueOf()) ? parsedDate.toISOString() : null;
     if (date && Date.now() - Date.parse(date) > 30 * 24 * 60 * 60 * 1000) return null;
-    return {
-      title: title.slice(0, 220), source: source.name, sourceType: source.kind,
-      publishedAt: date, url: safeUrl.href, imageUrl: imageFromBlock(block, source.url)
-    };
+    return { title: title.slice(0, 220), source: source.name, sourceType: source.kind, publishedAt: date, url: safeUrl.href };
   }).filter(Boolean);
 }
 
 async function loadSource(source) {
   const response = await fetch(source.url, {
-    headers: { accept: "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5", "user-agent": "RedlineTarmacNewsBot/1.2 (+https://redlinemotorsports.github.io/redline-tarmac/)" },
+    headers: { accept: "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5", "user-agent": "RedlineTarmacNewsBot/1.1 (+https://redlinemotorsports.github.io/redline-tarmac/)" },
     signal: AbortSignal.timeout(20000)
   });
   if (!response.ok) throw new Error(source.name + " feed returned HTTP " + response.status);
@@ -88,8 +60,9 @@ const sourceStatus = sources.map((source, index) => ({
 }));
 const outputPath = "public/data/rally-news.json";
 let previous = [];
+let previousSnapshot = null;
 try {
-  const previousSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
+  previousSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
   previous = Array.isArray(previousSnapshot.articles) ? previousSnapshot.articles : [];
 } catch {}
 
@@ -117,5 +90,4 @@ const snapshot = {
   articles: deduped
 };
 await writeFile(outputPath, JSON.stringify(snapshot, null, 2) + "\n");
-const withImages = deduped.filter(article => article.imageUrl).length;
-console.log("Saved " + deduped.length + " rally headlines (" + withImages + " with publisher images); " + freshArticles.length + " fresh from " + successfulSources + "/" + sources.length + " feeds.");
+console.log("Saved " + deduped.length + " rally headlines; " + freshArticles.length + " fresh from " + successfulSources + "/" + sources.length + " feeds.");
