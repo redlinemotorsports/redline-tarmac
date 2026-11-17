@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-17T09:13:54.963Z",
+  "updatedAt": "2026-11-17T18:36:44.504Z",
   "status": "ok",
-  "articleCount": 7,
+  "articleCount": 12,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,41 @@
     }
   ],
   "articles": [
+    {
+      "title": "Solberg concludes first term as WRC Commission president",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-17T10:33:39.000Z",
+      "url": "https://dirtfish.com/rally/wrc/solberg-steps-down-as-wrc-commission-president/"
+    },
+    {
+      "title": "Latvala confident Rally1 will beat Rally2 in 2027",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-17T10:19:08.000Z",
+      "url": "https://dirtfish.com/rally/wrc/latvala-confident-rally1-will-beat-rally2-in-2027/"
+    },
+    {
+      "title": "WRC testing regulations get 2027 overhaul",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-17T10:18:10.000Z",
+      "url": "https://dirtfish.com/rally/wrc/wrc-testing-regulations-get-2027-overhaul/"
+    },
+    {
+      "title": "FIA set to introduce WRC1, precluding Rally2 cars from 2027 title",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-17T10:07:41.000Z",
+      "url": "https://dirtfish.com/rally/wrc/fia-set-to-introduce-wrc1-precluding-rally2-cars-from-2027-title/"
+    },
+    {
+      "title": "WRC Commission Meeting – 16/11/2026 – Media Update",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-17T09:55:00.000Z",
+      "url": "https://www.fia.com/news/wrc-commission-meeting-16112026-media-update"
+    },
     {
       "title": "Rovanperä still plans to go racing, despite WRC return",
       "source": "DirtFish",
