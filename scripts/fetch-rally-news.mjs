@@ -8,18 +8,18 @@ const sources = [
   { name: "Motorsport.com", kind: "INDEPENDENT", url: "https://www.motorsport.com/rss/rally/news/" }
 ];
 
-const rallyPattern = /\\b(wrc|world rally|rally|rallying|monte[- ]carlo|safari rally|rallye|rally italia|rally japan|rally chile|rally sweden|rally finland|rally portugal|rally croatia|rally greece|rally estonia|rally poland|rally argentina|rally paraguay|rally1|rally2|rally3)\\b/i;
+const rallyPattern = /\b(wrc|world rally|rally|rallying|monte[- ]carlo|safari rally|rallye|rally italia|rally japan|rally chile|rally sweden|rally finland|rally portugal|rally croatia|rally greece|rally estonia|rally poland|rally argentina|rally paraguay|rally1|rally2|rally3)\b/i;
 const decode = value => value
-  .replace(/<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>/g, "$1")
+  .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
   .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
   .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
-  .replace(/&#(\\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-  .replace(/&#x([\\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+  .replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
   .trim();
 
 function tag(block, name) {
-  const match = block.match(new RegExp("<" + name + "(?:\\\\s[^>]*)?>([\\\\s\\\\S]*?)</" + name + ">", "i"));
-  return match ? decode(match[1].replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ")) : "";
+  const match = block.match(new RegExp("<" + name + "(?:\\s[^>]*)?>([\\s\\S]*?)</" + name + ">", "i"));
+  return match ? decode(match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")) : "";
 }
 
 function imageFromBlock(block, sourceUrl) {
@@ -34,24 +34,24 @@ function imageFromBlock(block, sourceUrl) {
   };
 
   // Prefer explicit RSS/Atom image metadata.
-  for (const match of block.matchAll(/<(?:media:content|media:thumbnail|enclosure)\\b([^>]*)\\/?\s*>/gi)) {
+  for (const match of block.matchAll(/<(?:media:content|media:thumbnail|enclosure)\b([^>]*)\/?\s*>/gi)) {
     const attrs = match[1];
-    const type = (attrs.match(/\\btype=["']([^"']+)["']/i) || [])[1] || "";
-    const url = (attrs.match(/\\burl=["']([^"']+)["']/i) || [])[1];
-    if (url && (!type || type.startsWith("image/") || /\\.(?:jpe?g|png|webp|avif)(?:[?#]|$)/i.test(url))) add(url);
+    const type = (attrs.match(/\btype=["']([^"']+)["']/i) || [])[1] || "";
+    const url = (attrs.match(/\burl=["']([^"']+)["']/i) || [])[1];
+    if (url && (!type || type.startsWith("image/") || /\.(?:jpe?g|png|webp|avif)(?:[?#]|$)/i.test(url))) add(url);
   }
 
   // Some publishers put their thumbnail only inside the encoded description/content.
   const html = decode(block);
-  for (const match of html.matchAll(/<img\\b[^>]*?\\bsrc=["']([^"']+)["']/gi)) add(match[1]);
+  for (const match of html.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["']/gi)) add(match[1]);
   return candidates[0] || null;
 }
 
 function parseFeed(xml, source) {
-  const blocks = [...xml.matchAll(/<(?:item|entry)\\b[^>]*>([\\s\\S]*?)<\\/(?:item|entry)>/gi)];
+  const blocks = [...xml.matchAll(/<(?:item|entry)\b[^>]*>([\s\S]*?)<\/(?:item|entry)>/gi)];
   return blocks.map(([, block]) => {
     const title = tag(block, "title");
-    const linkTag = block.match(/<link\\b[^>]*href=["']([^"']+)["'][^>]*\\/?\\s*>/i);
+    const linkTag = block.match(/<link\b[^>]*href=["']([^"']+)["'][^>]*\/?\s*>/i);
     const link = linkTag ? decode(linkTag[1]) : tag(block, "link");
     const publishedAt = tag(block, "pubDate") || tag(block, "published") || tag(block, "updated") || tag(block, "dc:date");
     const description = tag(block, "description") || tag(block, "summary") || tag(block, "content");
@@ -76,7 +76,7 @@ async function loadSource(source) {
   });
   if (!response.ok) throw new Error(source.name + " feed returned HTTP " + response.status);
   const xml = await response.text();
-  if (!/<(?:rss|feed|rdf:RDF)\\b/i.test(xml)) throw new Error(source.name + " response was not an RSS or Atom feed");
+  if (!/<(?:rss|feed|rdf:RDF)\b/i.test(xml)) throw new Error(source.name + " response was not an RSS or Atom feed");
   return parseFeed(xml, source);
 }
 
@@ -116,6 +116,6 @@ const snapshot = {
   sources: sourceStatus,
   articles: deduped
 };
-await writeFile(outputPath, JSON.stringify(snapshot, null, 2) + "\\n");
+await writeFile(outputPath, JSON.stringify(snapshot, null, 2) + "\n");
 const withImages = deduped.filter(article => article.imageUrl).length;
 console.log("Saved " + deduped.length + " rally headlines (" + withImages + " with publisher images); " + freshArticles.length + " fresh from " + successfulSources + "/" + sources.length + " feeds.");
