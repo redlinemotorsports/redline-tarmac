@@ -1,7 +1,3 @@
-const feed = document.querySelector("#nr-feed");
-const status = document.querySelector("#nr-feed-status");
-const updated = document.querySelector("#nr-feed-updated");
-
 const formatDate = value => {
   if (!value) return "DATE UNAVAILABLE";
   const date = new Date(value);
@@ -9,7 +5,7 @@ const formatDate = value => {
   return new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(date).toUpperCase();
 };
 
-function renderMessage(message) {
+function renderMessage(feed, message) {
   feed.replaceChildren();
   const panel = document.createElement("div");
   panel.className = "nr-feed-empty";
@@ -54,31 +50,35 @@ function renderArticle(article) {
 }
 
 async function loadNews() {
-  if (!feed) return;
+  // Resolve elements at call time: in-place navigation replaces the page DOM.
+  const feed = document.querySelector("#nr-feed");
+  const status = document.querySelector("#nr-feed-status");
+  const updated = document.querySelector("#nr-feed-updated");
+  if (!feed || !status || !updated) return;
+
   try {
-    const response = await fetch("./data/rally-news.json", { cache: "no-store" });
+    const response = await fetch(new URL("./data/rally-news.json", document.baseURI), { cache: "no-store" });
     if (!response.ok) throw new Error("News snapshot unavailable (" + response.status + ")");
     const snapshot = await response.json();
     const articles = Array.isArray(snapshot.articles) ? snapshot.articles : [];
     feed.replaceChildren();
     if (!articles.length) {
-      renderMessage("THE NEWS DESK IS WAITING FOR ITS FIRST VERIFIED HEADLINES.");
+      renderMessage(feed, "THE NEWS DESK IS WAITING FOR ITS FIRST VERIFIED HEADLINES.");
     } else {
       articles.forEach(article => feed.append(renderArticle(article)));
     }
-    const sources = snapshot.sources || [];
+    const sources = Array.isArray(snapshot.sources) ? snapshot.sources : [];
     const ready = sources.filter(source => source.status === "ok").length;
-    const countLabel = sources.length + " SOURCE FEEDS / " + ready + " ONLINE";
-    status.textContent = articles.length + " HEADLINES / " + countLabel;
+    status.textContent = articles.length + " HEADLINES / " + sources.length + " SOURCE FEEDS / " + ready + " ONLINE";
     updated.textContent = snapshot.updatedAt ? "UPDATED " + formatDate(snapshot.updatedAt) : "UPDATE TIME UNAVAILABLE";
   } catch (error) {
-    renderMessage("THE EDITORIAL FEED IS TEMPORARILY UNAVAILABLE.");
+    renderMessage(feed, "THE EDITORIAL FEED IS TEMPORARILY UNAVAILABLE.");
     status.textContent = "FEED CONNECTION / OFFLINE";
     updated.textContent = "LAST SNAPSHOT NOT AVAILABLE";
     console.warn("Tarmac Dispatch could not load its news snapshot:", error);
   }
 }
 
-// Expose an initializer so in-place navigation can refresh this view when revisited.
+// Resolve the current page DOM each time this initializer is called.
 window.initTarmacNewsroom = loadNews;
 if (document.body.dataset.page === "newsroom") loadNews();
