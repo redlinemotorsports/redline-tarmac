@@ -1,0 +1,84 @@
+{
+  "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
+  "updatedAt": "2026-11-17T09:13:54.963Z",
+  "status": "ok",
+  "articleCount": 7,
+  "sources": [
+    {
+      "name": "FIA",
+      "type": "OFFICIAL",
+      "status": "ok"
+    },
+    {
+      "name": "FIA",
+      "type": "OFFICIAL",
+      "status": "ok"
+    },
+    {
+      "name": "DirtFish",
+      "type": "INDEPENDENT",
+      "status": "ok"
+    },
+    {
+      "name": "Autosport",
+      "type": "INDEPENDENT",
+      "status": "ok"
+    },
+    {
+      "name": "Motorsport.com",
+      "type": "INDEPENDENT",
+      "status": "ok"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Rovanperä still plans to go racing, despite WRC return",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-16T08:55:28.000Z",
+      "url": "https://dirtfish.com/rally/wrc/rovanpera-still-plans-to-go-racing-despite-wrc-return/"
+    },
+    {
+      "title": "2026 FIA European Baja Cup titles for Polish duo of Wiatr and Łaskawiec after Hungarian Baja victory",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-15T09:04:00.000Z",
+      "url": "https://www.fia.com/news/2026-fia-european-baja-cup-titles-polish-duo-wiatr-and-laskawiec-after-hungarian-baja-victory"
+    },
+    {
+      "title": "What a WRC driver can learn by co-driving",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-14T09:51:56.000Z",
+      "url": "https://dirtfish.com/rally/wrc/what-a-wrc-driver-can-learn-by-co-driving/"
+    },
+    {
+      "title": "Millener’s view on Solberg’s Rally2 concerns",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-13T12:50:22.000Z",
+      "url": "https://dirtfish.com/rally/wrc/milleners-view-on-solbergs-rally2-concerns/"
+    },
+    {
+      "title": "The first African to win a European rally title",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-13T09:01:07.000Z",
+      "url": "https://dirtfish.com/rally/wrc/the-first-african-to-win-a-european-rally-title/"
+    },
+    {
+      "title": "Rally Argentina set for WRC return in 2028",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-12T14:01:13.000Z",
+      "url": "https://dirtfish.com/rally/wrc/rally-argentina-set-for-wrc-return-in-2028/"
+    },
+    {
+      "title": "FIA CONFIRMS PATH FOR ARGENTINA’S RETURN TO THE FIA WORLD RALLY CHAMPIONSHIP FROM 2028",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-12T13:07:00.000Z",
+      "url": "https://www.fia.com/news/fia-confirms-path-argentinas-return-fia-world-rally-championship-2028"
+    }
+  ]
+}
