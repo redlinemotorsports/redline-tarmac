@@ -17,9 +17,39 @@ function renderMessage(feed, message) {
   feed.append(panel);
 }
 
+function safeHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
 function renderArticle(article) {
   const card = document.createElement("article");
   card.className = "nr-story";
+  const articleUrl = safeHttpUrl(article.url);
+
+  if (article.imageUrl && articleUrl) {
+    const imageLink = document.createElement("a");
+    imageLink.className = "nr-story-image-link";
+    imageLink.href = articleUrl;
+    imageLink.target = "_blank";
+    imageLink.rel = "noopener noreferrer";
+    imageLink.setAttribute("aria-label", "Open article: " + article.title);
+    const image = document.createElement("img");
+    image.className = "nr-story-image";
+    image.src = safeHttpUrl(article.imageUrl) || "";
+    image.alt = "Publisher-supplied photograph for: " + article.title;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.referrerPolicy = "no-referrer";
+    image.addEventListener("error", () => imageLink.remove(), { once: true });
+    imageLink.append(image);
+    card.append(imageLink);
+  }
+
   const meta = document.createElement("div");
   meta.className = "nr-story-meta";
   const source = document.createElement("span");
@@ -32,14 +62,10 @@ function renderArticle(article) {
   const heading = document.createElement("h4");
   const link = document.createElement("a");
   link.textContent = article.title;
-  try {
-    const url = new URL(article.url);
-    if (!["https:", "http:"].includes(url.protocol)) throw new Error("Unsafe URL");
-    link.href = url.href;
+  if (articleUrl) {
+    link.href = articleUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-  } catch {
-    link.removeAttribute("href");
   }
   heading.append(link);
   const footer = document.createElement("div");
@@ -50,7 +76,6 @@ function renderArticle(article) {
 }
 
 async function loadNews() {
-  // Resolve elements at call time: in-place navigation replaces the page DOM.
   const feed = document.querySelector("#nr-feed");
   const status = document.querySelector("#nr-feed-status");
   const updated = document.querySelector("#nr-feed-updated");
@@ -69,7 +94,8 @@ async function loadNews() {
     }
     const sources = Array.isArray(snapshot.sources) ? snapshot.sources : [];
     const ready = sources.filter(source => source.status === "ok").length;
-    status.textContent = articles.length + " HEADLINES / " + sources.length + " SOURCE FEEDS / " + ready + " ONLINE";
+    const withImages = articles.filter(article => article.imageUrl).length;
+    status.textContent = articles.length + " HEADLINES / " + withImages + " WITH IMAGES / " + sources.length + " SOURCE FEEDS / " + ready + " ONLINE";
     updated.textContent = snapshot.updatedAt ? "UPDATED " + formatDate(snapshot.updatedAt) : "UPDATE TIME UNAVAILABLE";
   } catch (error) {
     renderMessage(feed, "THE EDITORIAL FEED IS TEMPORARILY UNAVAILABLE.");
@@ -79,6 +105,5 @@ async function loadNews() {
   }
 }
 
-// Resolve the current page DOM each time this initializer is called.
 window.initTarmacNewsroom = loadNews;
 if (document.body.dataset.page === "newsroom") loadNews();
