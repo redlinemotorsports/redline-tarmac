@@ -80,6 +80,10 @@
         }
       }
       if (reinitializeNewsroom) window.initTarmacNewsroom();
+      if (nextPage === "home") {
+        if (typeof window.initTarmacHomeData === "function") window.initTarmacHomeData();
+        if (typeof window.initTarmacHomeNews === "function") window.initTarmacHomeNews();
+      }
       scrollToHash(url.hash);
     } catch (error) {
       console.error("Redline Tarmac section navigation failed; using normal page navigation.", error);
