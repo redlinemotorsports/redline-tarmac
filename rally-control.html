@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#151719">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2">
-<meta name="description" content="Redline Tarmac Rally Control — event information, rally classification and stage results.">
+<meta name="description" content="Redline Tarmac Rally Control — verified WRC event calendar and rally results.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./src/styles/main.scss">
@@ -24,8 +24,8 @@
 <div class="rally-hero-copy">
 <p class="eyebrow">03 / EVENT OPERATIONS</p>
 <h1>RALLY<br><em>CONTROL.</em></h1>
-<p class="rally-intro">The rally, stage by stage. Follow event information, overall classification and stage results in one clear view.</p>
-<div class="rally-hero-meta"><span>WORLD RALLY CHAMPIONSHIP</span><span>VERIFIED DATA ONLY</span></div>
+<p class="rally-intro">The rally, stage by stage. Follow the WRC season calendar and event information from one clear view.</p>
+<div class="rally-hero-meta"><span>WORLD RALLY CHAMPIONSHIP</span><span>BLACKTOP DATA</span></div>
 </div>
 <div class="rally-hero-art">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/2025_Hyundai_i20_N_Rally_1_Fourmaux.jpg/1280px-2025_Hyundai_i20_N_Rally_1_Fourmaux.jpg" alt="Adrien Fourmaux and Alexandre Coria’s Hyundai i20 N Rally1 at Rally Japan 2025" fetchpriority="high">
@@ -35,26 +35,23 @@
 <span class="rally-hero-marker" aria-hidden="true"></span>
 </div>
 </section>
-<div class="rally-status" aria-live="polite"><span class="rally-status-mark"></span><strong>EVENT FEED NOT CONNECTED</strong><span>No verified event is currently selected. Official information will appear when a supported source is available.</span></div>
-<section class="rally-overview" aria-label="Event overview">
-<div><span>CHAMPIONSHIP</span><strong>WRC</strong></div>
-<div><span>SELECTED EVENT</span><strong>—</strong></div>
-<div><span>TIMING STATUS</span><strong>NOT CONNECTED</strong></div>
+<div class="rally-status" aria-live="polite"><span class="rally-status-mark"></span><strong>WRC CALENDAR</strong><span id="rally-status-copy">Loading verified WRC event schedule…</span></div>
+<section class="rally-results-section rally-calendar-section">
+<header class="rally-section-head"><div><p class="eyebrow">01 / SEASON SCHEDULE</p><h2>Rally calendar</h2></div><span id="rally-season">2026 SEASON</span></header>
+<div class="rally-calendar-meta"><span id="rally-event-count">— EVENTS</span><span>DATES AND LOCATIONS FROM BLACKTOP DATA</span></div>
+<div id="rally-event-list" class="rally-event-list" aria-live="polite"><div class="rally-empty-row"><span class="rally-empty-index">—</span><div><strong>Loading event calendar</strong><p>Retrieving the latest WRC season schedule.</p></div></div></div>
 </section>
 <section class="rally-results-section">
-<header class="rally-section-head"><div><p class="eyebrow">01 / CLASSIFICATION</p><h2>Overall results</h2></div><span>OFFICIAL RESULTS ONLY</span></header>
-<div class="rally-empty-row"><span class="rally-empty-index">—</span><div><strong>Classification unavailable</strong><p>A verified event classification will appear here when an official results feed is connected.</p></div></div>
+<header class="rally-section-head"><div><p class="eyebrow">02 / CLASSIFICATION</p><h2>Overall results</h2></div><span>RALLY RESULTS</span></header>
+<div class="rally-empty-row"><span class="rally-empty-index">—</span><div><strong>Event classification</strong><p>Rally-specific classifications will be connected once the event result response is verified against the provider schema. Championship standings remain available in the Standings tab.</p></div></div>
 </section>
 <section class="rally-results-section rally-stage-section">
-<header class="rally-section-head"><div><p class="eyebrow">02 / STAGE RESULTS</p><h2>Stage times</h2></div><span>OFFICIAL TIMING ONLY</span></header>
-<div class="rally-empty-row"><span class="rally-empty-index">—</span><div><strong>Stage timing unavailable</strong><p>Stage times and crew gaps are not displayed until a reliable timing source is available.</p></div></div>
-</section>
-<section class="rally-notices">
-<header class="rally-section-head"><div><p class="eyebrow">03 / EVENT INFORMATION</p><h2>Official notices</h2></div><span>FIA / EVENT BULLETINS</span></header>
-<p>No verified event notices are available. Official bulletins and sporting decisions will be listed here when published by a supported source.</p>
+<header class="rally-section-head"><div><p class="eyebrow">03 / STAGE RESULTS</p><h2>Stage times</h2></div><span>STAGE RESULTS</span></header>
+<div class="rally-empty-row"><span class="rally-empty-index">—</span><div><strong>Stage timing</strong><p>Stage times and crew gaps will appear here when the stage-results feed is connected. Live timing access depends on the provider plan.</p></div></div>
 </section>
 </main>
-<footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span class="rally-footer-credit">HERO PHOTO: <a href="https://commons.wikimedia.org/wiki/File:2025_Hyundai_i20_N_Rally_1_Fourmaux.jpg" target="_blank" rel="noopener noreferrer">TTTNIS / WIKIMEDIA COMMONS</a> · CC0 1.0</span></footer>
+<footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span class="rally-footer-credit">DATA: <a href="https://ocblacktop.com/api/wrc" target="_blank" rel="noopener noreferrer">BLACKTOP DATA WRC API</a> · HERO PHOTO: <a href="https://commons.wikimedia.org/wiki/File:2025_Hyundai_i20_N_Rally_1_Fourmaux.jpg" target="_blank" rel="noopener noreferrer">TTTNIS / WIKIMEDIA COMMONS</a> · CC0 1.0</span></footer>
 </div>
 <script type="module" src="./src/navigation.js"></script>
+<script type="module" src="./src/rally-control-data.js"></script>
 </body></html>
