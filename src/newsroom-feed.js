@@ -17,9 +17,9 @@ function renderMessage(feed, message) {
   feed.append(panel);
 }
 
-function renderArticle(article) {
+function renderArticle(article, index) {
   const card = document.createElement("article");
-  card.className = "nr-story";
+  card.className = index === 0 ? "nr-story nr-story-lead" : "nr-story";
   const meta = document.createElement("div");
   meta.className = "nr-story-meta";
   const source = document.createElement("span");
@@ -65,7 +65,7 @@ async function loadNews() {
     if (!articles.length) {
       renderMessage(feed, "THE NEWS DESK IS WAITING FOR ITS FIRST VERIFIED HEADLINES.");
     } else {
-      articles.forEach(article => feed.append(renderArticle(article)));
+      articles.forEach((article, index) => feed.append(renderArticle(article, index)));
     }
     const sources = Array.isArray(snapshot.sources) ? snapshot.sources : [];
     const ready = sources.filter(source => source.status === "ok").length;
