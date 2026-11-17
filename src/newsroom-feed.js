@@ -79,4 +79,6 @@ async function loadNews() {
   }
 }
 
-loadNews();
+// Expose an initializer so in-place navigation can refresh this view when revisited.
+window.initTarmacNewsroom = loadNews;
+if (document.body.dataset.page === "newsroom") loadNews();
