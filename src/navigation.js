@@ -99,7 +99,7 @@
   document.addEventListener("click", event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target.closest("a[href]");
-    if (!link || link.target && link.target !== "_self" || link.hasAttribute("download")) return;
+    if (!link || link.target && link.target !== "_self" || link.hasAttribute("download") || link.dataset.nativeNavigation === "true") return;
     const url = new URL(link.href, document.baseURI);
     if (url.origin !== location.origin) return;
     const nextPage = routeFor(url);
