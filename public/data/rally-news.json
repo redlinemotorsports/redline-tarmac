@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-18T10:10:39.600Z",
+  "updatedAt": "2026-11-18T18:51:27.269Z",
   "status": "ok",
-  "articleCount": 12,
+  "articleCount": 14,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,20 @@
     }
   ],
   "articles": [
+    {
+      "title": "Team bosses react to WRC 2027’s sporting changes",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-18T12:34:34.000Z",
+      "url": "https://dirtfish.com/rally/wrc/team-bosses-react-to-wrc-2027s-sporting-changes/"
+    },
+    {
+      "title": "Solberg concludes first term as WRC Commission president",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-17T10:33:39.000Z",
+      "url": "https://dirtfish.com/rally/wrc/solberg-concludes-first-term-as-wrc-commission-president/"
+    },
     {
       "title": "Solberg concludes first term as WRC Commission president",
       "source": "DirtFish",
