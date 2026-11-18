@@ -112,7 +112,8 @@ function renderTable(target,rows,kind){
 }
 function renderStandings(snapshot){
   const categories=snapshot.categories||snapshot;
-  const byRank=rows=>extractRows(rows).sort((a,b)=>Number(a.position??a.rank??999)-Number(b.position??b.rank??999));\n  const drivers=byRank(categories.drivers),coDrivers=byRank(categories.coDrivers??categories.codrivers),manufacturers=byRank(categories.manufacturers);
+  const byRank=rows=>extractRows(rows).sort((a,b)=>Number(a.position??a.rank??999)-Number(b.position??b.rank??999));
+  const drivers=byRank(categories.drivers),coDrivers=byRank(categories.coDrivers??categories.codrivers),manufacturers=byRank(categories.manufacturers);
   const metric=(id,label,value,note)=>{const item=$(id);if(!item)return;item.querySelector("span").textContent=label;item.querySelector("strong").textContent=value;item.querySelector("small").textContent=note;};
   const leader=(rows)=>rows[0],pointsNote=row=>row&&pointsValue(row)!==null?pointsValue(row)+" POINTS":"VERIFIED POINTS NOT SUPPLIED";
   metric("#tt-metric-driver","01 / DRIVERS’ LEADER",leader(drivers)?crewName(leader(drivers)):"—",pointsNote(leader(drivers)));
