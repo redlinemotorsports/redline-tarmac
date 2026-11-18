@@ -1,5 +1,5 @@
 const VERSION = "redline-tarmac-shell-v1";
-const SHELL = ["./", "./data-centre.html", "./favicon.svg"];
+const SHELL = ["./", "./index.html", "./standings.html", "./rally-control.html", "./data-centre.html", "./newsroom.html", "./favicon.svg"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(VERSION).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });
