@@ -70,7 +70,7 @@
 .tt-chart-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center}
 .tt-chart-empty strong{color:#c3c6c3;font:700 8px var(--mono);letter-spacing:.12em}
 .tt-chart-empty span{max-width:340px;color:var(--dim);font-size:8px;line-height:1.6}
-.tt-chart-x{position:absolute;right:0;bottom:-21px;left:0;display:flex;justify-content:space-between;color:var(--dim);font:7px var(--mono);letter-spacing:.08em}
+.tt-chart-x{position:static;grid-column:2;display:flex;justify-content:space-between;margin-top:-20px;color:var(--dim);font:7px var(--mono);letter-spacing:.08em}
 .tt-chart-grid{margin-bottom:22px}
 .tt-readiness{margin-top:48px}
 .tt-readiness .tt-panel-head{padding:0 0 17px;border:0}
