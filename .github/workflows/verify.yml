@@ -20,6 +20,7 @@ jobs:
       - run: node --check scripts/fetch-rally-news.mjs
       - run: node --check scripts/fetch-rally-control.mjs
       - run: node --check src/rally-control-data.js
+      - run: node --check src/data-centre.js
       - run: node --check src/newsroom-feed.js
       - name: Verify live rally feed ingestion
         run: |

@@ -10,6 +10,7 @@
     [basePath + "index.html", "home"],
     [basePath + "standings.html", "standings"],
     [basePath + "rally-control.html", "rally-control"],
+    [basePath + "data-centre.html", "data-centre"],
     [basePath + "newsroom.html", "newsroom"]
   ]);
   let activePage = document.body.dataset.page || "home";
@@ -80,6 +81,7 @@
         }
       }
       if (reinitializeNewsroom) window.initTarmacNewsroom();
+      if (nextPage === "data-centre" && typeof window.initTarmacDataCentre === "function") window.initTarmacDataCentre();
       if (nextPage === "home") {
         if (typeof window.initTarmacHomeData === "function") window.initTarmacHomeData();
         if (typeof window.initTarmacHomeNews === "function") window.initTarmacHomeNews();
