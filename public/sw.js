@@ -24,7 +24,13 @@ self.addEventListener("fetch", event => {
     event.respondWith(fetch(request).then(response => {
       if (response.ok) { const copy = response.clone(); caches.open(VERSION).then(cache => cache.put(request, copy)); }
       return response;
-    }).catch(() => caches.match(request)));
+    }).catch(async () => {
+      const cached = await caches.match(request);
+      if (!cached) throw new Error("No cached data snapshot is available");
+      const headers = new Headers(cached.headers);
+      headers.set("X-Redline-Cache", "hit");
+      return new Response(await cached.arrayBuffer(), { status: cached.status, statusText: cached.statusText, headers });
+    }));
     return;
   }
   if (["script", "style", "image", "font"].includes(request.destination)) {
