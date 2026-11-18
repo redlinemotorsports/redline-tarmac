@@ -4,6 +4,14 @@
   if (window.__redlineTarmacNavigationInstalled) return;
   window.__redlineTarmacNavigationInstalled = true;
 
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(new URL("./service-worker.js", document.baseURI)).catch(error =>
+        console.warn("Redline Tarmac offline shell could not be registered:", error)
+      );
+    }, { once: true });
+  }
+
   const basePath = new URL("./", document.baseURI).pathname;
   const routes = new Map([
     [basePath, "home"],
