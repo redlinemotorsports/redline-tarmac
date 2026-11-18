@@ -58,7 +58,7 @@ async function getDataset(key,path) {
     const payload=await response.json();
     if(!isValidSnapshot(key,payload))throw new Error("Snapshot validation failed");
     try{await cacheSnapshot(key,payload);}catch(error){console.warn("Telemetry cache write failed:",error);}
-    return {payload,source:"network",fetchedAt:payload.fetchedAt};
+    return {payload,source:response.headers.get("X-Redline-Cache")==="hit"?"cache":"network",fetchedAt:payload.fetchedAt};
   } catch(error) {
     console.warn("Telemetry refresh failed for "+key+":",error);
     try{const cached=await readSnapshot(key);if(cached&&isValidSnapshot(key,cached.payload))return {payload:cached.payload,source:"cache",fetchedAt:cached.fetchedAt||cached.payload.fetchedAt};}
