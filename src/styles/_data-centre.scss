@@ -133,3 +133,5 @@
 .tt-pace-point b{color:var(--white);font:500 11px var(--mono)}
 .tt-pace-point small{color:var(--orange);font:7px var(--mono);white-space:nowrap}
 @media(max-width:760px){.tt-stage-controls{align-items:flex-start;flex-direction:column}.tt-stage-controls select{min-width:0;width:100%}.tt-stage-controls>span{text-align:left}.tt-result-row{grid-template-columns:22px minmax(75px,1fr) 75px 52px;gap:6px}.tt-result-row>small{display:none}.tt-result-row>em{font-size:7px}.tt-split-list>div{grid-template-columns:1fr 70px 1fr;gap:6px}}
+
+.tt-pace-caption{width:100%;flex:0 0 100%;margin:0;color:var(--orange);font:8px var(--mono);letter-spacing:.08em}
