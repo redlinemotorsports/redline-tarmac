@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-19T08:50:00.781Z",
+  "updatedAt": "2026-11-19T18:17:24.946Z",
   "status": "ok",
-  "articleCount": 14,
+  "articleCount": 16,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,20 @@
     }
   ],
   "articles": [
+    {
+      "title": "WRC Promoter’s rationale for the 2027 changes",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-19T09:02:16.000Z",
+      "url": "https://dirtfish.com/rally/wrc/wrc-promoters-rationale-for-the-2027-changes/"
+    },
+    {
+      "title": "35th Abu Dhabi Desert Challenge ventures west to Al-Sila’ and hosts FIA World Rally-Raid Championship (W2RC) finale",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-18T16:28:00.000Z",
+      "url": "https://www.fia.com/news/35th-abu-dhabi-desert-challenge-ventures-west-al-sila-and-hosts-fia-world-rally-raid"
+    },
     {
       "title": "Team bosses react to WRC 2027’s sporting changes",
       "source": "DirtFish",
