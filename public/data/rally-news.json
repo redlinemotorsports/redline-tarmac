@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-20T01:16:30.167Z",
+  "updatedAt": "2026-11-20T08:39:28.336Z",
   "status": "ok",
-  "articleCount": 17,
+  "articleCount": 18,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "Jamaica’s Motor Sport Landscape Strengthened with FIA Training Programme",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-20T08:35:00.000Z",
+      "url": "https://www.fia.com/news/jamaicas-motor-sport-landscape-strengthened-fia-training-programme"
+    },
     {
       "title": "Project RallyOne to debut at next week’s Spa Rally",
       "source": "DirtFish",
