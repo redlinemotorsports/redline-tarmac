@@ -19,6 +19,7 @@ jobs:
       - name: Check telemetry JavaScript syntax
         run: |
           node --check scripts/fetch-wrc-performance.mjs
+          node --check scripts/fetch-open-rally.mjs
           node --check src/data-centre.js
       - name: Build site
         run: npm run build
