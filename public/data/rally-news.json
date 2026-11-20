@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-19T18:17:24.946Z",
+  "updatedAt": "2026-11-20T01:16:30.167Z",
   "status": "ok",
-  "articleCount": 16,
+  "articleCount": 17,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "Project RallyOne to debut at next week’s Spa Rally",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-19T20:02:28.000Z",
+      "url": "https://dirtfish.com/rally/wrc/project-rallyone-to-debut-at-next-weeks-spa-rally/"
+    },
     {
       "title": "WRC Promoter’s rationale for the 2027 changes",
       "source": "DirtFish",
