@@ -17,38 +17,22 @@
 <a href="./"><i>01</i>Home</a><a href="./standings.html"><i>02</i>Standings</a><a href="./rally-control.html"><i>03</i>Rally Control</a><a class="active" href="./data-centre.html" aria-current="page"><i>04</i>Data Centre</a><a href="./newsroom.html"><i>05</i>Newsroom</a>
 </nav><span class="prototype">PROTOTYPE</span>
 </header>
-<div class="kicker">REDLINE MOTORSPORTS <b>／</b> PERFORMANCE INTELLIGENCE <b>／</b> TARMAC TELEMETRY</div>
+<div class="kicker">REDLINE MOTORSPORTS <b>／</b> RALLY RESULTS <b>／</b> TARMAC TELEMETRY</div>
 <main class="data-centre-page telemetry-page">
-<section class="tt-hero">
-<div class="tt-hero-copy"><p class="eyebrow">04 / THE NUMBERS BEHIND THE STAGE</p><h1>TARMAC<br><em>TELEMETRY.</em></h1><p>Read the rally beyond the leaderboard. Stage times, split deltas and pace evolution — built around verified timing data, never simulated numbers.</p><div class="tt-hero-tags"><span>STAGE PERFORMANCE</span><span>TIME DELTAS</span><span>PACE ANALYSIS</span></div></div>
-<div class="tt-hero-graphic" aria-hidden="true"><div class="tt-radar"><i></i><i></i><i></i><b></b></div><span class="tt-graphic-label">RT / PERFORMANCE SYSTEMS</span><strong>TIME<br>IS THE<br>MEASURE<span>.</span></strong><small>WRC · 2026</small></div>
+<section class="tt-hero tt-hero-simple">
+<div class="tt-hero-copy"><p class="eyebrow">04 / RALLY PERFORMANCE</p><h1>TARMAC<br><em>TELEMETRY.</em></h1><p>Follow the latest verified stage results. Pick a rally, choose a stage and see who's setting the pace.</p></div>
 </section>
 <section class="tt-feedbar" aria-live="polite"><span class="tt-feed-indicator"></span><strong id="tt-feed-state">CONNECTING TO DATA FEED</strong><span id="tt-feed-message">Checking verified event and timing sources…</span><span id="tt-feed-updated">UPDATED / —</span></section>
 <section class="tt-event-console">
 <div class="tt-console-heading"><div><p class="eyebrow">01 / EVENT MONITOR</p><h2>Choose your rally.</h2><p>Choose a rally and stage to inspect published classifications, splits and stage-time trends.</p></div><span class="tt-console-index">EVENT SELECTOR / 2026</span></div>
 <div class="tt-event-controls"><label for="tt-event-select">WRC EVENT<select id="tt-event-select"><option value="">Loading event schedule…</option></select></label><div class="tt-event-summary"><span id="tt-event-round">ROUND / —</span><strong id="tt-event-name">Awaiting event schedule</strong><small id="tt-event-location">EVENT LOCATION / —</small></div><div class="tt-event-status"><span class="tt-status-label">TIMING FEED</span><strong id="tt-event-timing">NOT CONNECTED</strong><small>STAGE CLASSIFICATION / PENDING</small></div></div>
 </section>
-<section class="tt-championship-pulse" aria-labelledby="tt-championship-title">
-<header class="tt-panel-head"><div><p class="eyebrow">01B / CHAMPIONSHIP SNAPSHOT</p><h2 id="tt-championship-title">The championship pulse.</h2><p>Verified driver, co-driver and manufacturer standings from the latest scheduled snapshot.</p></div><span id="tt-standings-updated">STANDINGS / LOADING</span></header>
-<div class="tt-standings-grid">
-<article class="tt-standing-card"><header><span>01 / DRIVERS</span><small id="tt-driver-count">— ENTRIES</small></header><div id="tt-drivers-list" class="tt-standing-list"><p class="tt-data-placeholder">Loading verified driver standings…</p></div></article>
-<article class="tt-standing-card"><header><span>02 / CO-DRIVERS</span><small id="tt-codriver-count">— ENTRIES</small></header><div id="tt-codrivers-list" class="tt-standing-list"><p class="tt-data-placeholder">Loading verified co-driver standings…</p></div></article>
-<article class="tt-standing-card"><header><span>03 / MANUFACTURERS</span><small id="tt-manufacturer-count">— ENTRIES</small></header><div id="tt-manufacturers-list" class="tt-standing-list"><p class="tt-data-placeholder">Loading verified manufacturer standings…</p></div></article>
-</div>
-<p class="tt-standings-footnote" id="tt-standings-note">Championship snapshot · scheduled API data, not live stage timing.</p>
+<section class="tt-panel tt-stage-panel tt-simple-stage">
+<header class="tt-panel-head"><div><p class="eyebrow">02 / STAGE RESULTS</p><h2>Stage leaderboard.</h2><p>Verified stage times, positions and gaps to the fastest crew.</p></div><span id="tt-stage-result-count">— CREWS</span></header>
+<div class="tt-stage-controls"><label for="tt-stage-select">CHOOSE A STAGE<select id="tt-stage-select"><option value="">Loading stage data…</option></select></label><span id="tt-stage-title">STAGE CLASSIFICATION</span></div>
+<div id="tt-stage-results" class="tt-stage-results"><p class="tt-data-placeholder">Waiting for verified stage results…</p></div>
+<p class="tt-panel-note" id="tt-stage-feed-note">Only verified results are shown. No simulated times or estimated positions.</p>
 </section>
-<section class="tt-metric-strip" id="tt-metric-strip" aria-label="Stage timing metrics">
-<article><span>01 / STAGE TIME</span><strong>—:—.---</strong><small>NO VERIFIED RESULT</small></article>
-<article><span>02 / FASTEST CREW</span><strong>—</strong><small>STAGE CLASSIFICATION PENDING</small></article>
-<article><span>03 / TIME DELTA</span><strong>+—.---</strong><small>GAP TO FASTEST / PENDING</small></article>
-<article><span>04 / SPLIT POINTS</span><strong>— / —</strong><small>INTERMEDIATE TIMING / PENDING</small></article>
-</section>
-<section class="tt-analysis-grid">
-<article class="tt-panel tt-stage-panel"><header class="tt-panel-head"><div><p class="eyebrow">02 / STAGE CLASSIFICATION</p><h2>Stage timing.</h2></div><span id="tt-stage-result-count">— CREWS</span></header><div class="tt-stage-controls"><label for="tt-stage-select">SPECIAL STAGE<select id="tt-stage-select"><option value="">Loading stage data…</option></select></label><span id="tt-stage-title">STAGE CLASSIFICATION</span></div><div id="tt-stage-results" class="tt-stage-results"><p class="tt-data-placeholder">Waiting for verified stage results…</p></div><p class="tt-panel-note" id="tt-stage-feed-note">NO SIMULATED TIMES · NO ESTIMATED POSITIONS</p></article>
-<article class="tt-panel tt-split-panel"><header class="tt-panel-head"><div><p class="eyebrow">03 / TIME DELTA</p><h2>Split analysis.</h2></div><span>SECTOR / GAP</span></header><div id="tt-split-results" class="tt-split-list"><p class="tt-data-placeholder">Waiting for verified split records…</p></div><p class="tt-panel-note">Split labels and times are taken from the provider snapshot when available.</p></article>
-</section>
-<section class="tt-panel tt-pace-panel"><header class="tt-panel-head"><div><p class="eyebrow">04 / PERFORMANCE TREND</p><h2>Pace evolution.</h2><p>Track where crews gain time, lose time and build consistency across a rally.</p></div><span id="tt-performance-updated">STAGE-BY-STAGE / DELTA</span></header><div class="tt-chart" role="img" aria-label="Pace evolution chart awaiting verified stage timing data"><div class="tt-chart-y"><span>−</span><span>0</span><span>+</span></div><div class="tt-chart-grid"><i></i><i></i><i></i><i></i><div id="tt-pace-trace" class="tt-pace-trace"><div class="tt-chart-empty"><strong>NO PACE TRACE AVAILABLE</strong><span>Verified stage-by-stage timing is required to plot a performance trend.</span></div></div></div><div class="tt-chart-x"><span>START</span><span>STAGE PROGRESSION</span><span>FINISH</span></div></div></section>
-<section class="tt-readiness"><header class="tt-panel-head"><div><p class="eyebrow">05 / DATA COVERAGE</p><h2>What we can measure.</h2></div><span>VERIFIED SOURCES ONLY</span></header><div class="tt-readiness-grid"><article class="is-ready"><span>AVAILABLE</span><strong>WRC event calendar</strong><small>EVENTS · DATES · LOCATIONS</small></article><article><span>PENDING</span><strong>Stage classification</strong><small>CREW TIMES · OVERALL GAPS</small></article><article><span>PENDING</span><strong>Intermediate splits</strong><small>SECTOR TIMES · TIME DELTAS</small></article><article><span>PENDING</span><strong>Historical pace</strong><small>STAGE TRENDS · CONSISTENCY</small></article></div><p class="tt-source-note">Data source: Blacktop Data WRC API snapshots. Championship standings remain in the Standings tab. Timing metrics will only be enabled after the relevant endpoint and data rights are verified.</p></section>
 </main>
 <footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span>DATA: BLACKTOP DATA WRC API / SCHEDULED SNAPSHOTS</span></footer>
 </div>
