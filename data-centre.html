@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151719">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2">
-<meta name="description" content="Tarmac Telemetry — rally stage timing, split analysis and performance intelligence from verified WRC data.">
+<meta name="description" content="Tarmac Telemetry — simple, verified WRC rally stage results and crew times.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./src/styles/main.scss">
@@ -24,8 +24,8 @@
 </section>
 <section class="tt-feedbar" aria-live="polite"><span class="tt-feed-indicator"></span><strong id="tt-feed-state">CONNECTING TO DATA FEED</strong><span id="tt-feed-message">Checking verified event and timing sources…</span><span id="tt-feed-updated">UPDATED / —</span></section>
 <section class="tt-event-console">
-<div class="tt-console-heading"><div><p class="eyebrow">01 / EVENT MONITOR</p><h2>Choose your rally.</h2><p>Choose a rally and stage to inspect published classifications, splits and stage-time trends.</p></div><span class="tt-console-index">EVENT SELECTOR / 2026</span></div>
-<div class="tt-event-controls"><label for="tt-event-select">WRC EVENT<select id="tt-event-select"><option value="">Loading event schedule…</option></select></label><div class="tt-event-summary"><span id="tt-event-round">ROUND / —</span><strong id="tt-event-name">Awaiting event schedule</strong><small id="tt-event-location">EVENT LOCATION / —</small></div><div class="tt-event-status"><span class="tt-status-label">TIMING FEED</span><strong id="tt-event-timing">NOT CONNECTED</strong><small>STAGE CLASSIFICATION / PENDING</small></div></div>
+<div class="tt-console-heading"><div><p class="eyebrow">01 / EVENT MONITOR</p><h2>Choose your rally.</h2><p>Select an event and stage to view the verified results.</p></div><span class="tt-console-index">EVENT SELECTOR / 2026</span></div>
+<div class="tt-event-controls"><label for="tt-event-select">WRC EVENT<select id="tt-event-select"><option value="">Loading event schedule…</option></select></label><div class="tt-event-summary"><span id="tt-event-round">ROUND / —</span><strong id="tt-event-name">Awaiting event schedule</strong><small id="tt-event-location">EVENT LOCATION / —</small></div><div class="tt-event-status"><span class="tt-status-label">STAGE DATA</span><strong id="tt-event-timing">NOT AVAILABLE</strong><small>VERIFIED RESULTS ONLY</small></div></div>
 </section>
 <section class="tt-panel tt-stage-panel tt-simple-stage">
 <header class="tt-panel-head"><div><p class="eyebrow">02 / STAGE RESULTS</p><h2>Stage leaderboard.</h2><p>Verified stage times, positions and gaps to the fastest crew.</p></div><span id="tt-stage-result-count">— CREWS</span></header>
