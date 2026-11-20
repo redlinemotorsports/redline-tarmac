@@ -135,3 +135,25 @@
 @media(max-width:760px){.tt-stage-controls{align-items:flex-start;flex-direction:column}.tt-stage-controls select{min-width:0;width:100%}.tt-stage-controls>span{text-align:left}.tt-result-row{grid-template-columns:22px minmax(75px,1fr) 75px 52px;gap:6px}.tt-result-row>small{display:none}.tt-result-row>em{font-size:7px}.tt-split-list>div{grid-template-columns:1fr 70px 1fr;gap:6px}}
 
 .tt-pace-caption{width:100%;flex:0 0 100%;margin:0;color:var(--orange);font:8px var(--mono);letter-spacing:.08em}
+
+/* Simple fan-first telemetry layout */
+.telemetry-page .tt-hero-simple{display:block;min-height:0;background:#1b1f22}
+.telemetry-page .tt-hero-simple .tt-hero-copy{max-width:780px;padding:30px 34px}
+.telemetry-page .tt-hero-simple h1{margin:13px 0;font-size:clamp(54px,6vw,78px);line-height:.82}
+.telemetry-page .tt-hero-simple .tt-hero-copy>p:not(.eyebrow){max-width:560px;margin-bottom:0}
+.telemetry-page .tt-event-console{margin-top:24px}
+.telemetry-page .tt-console-heading{margin-bottom:14px}
+.telemetry-page .tt-console-heading h2{font-size:32px}
+.telemetry-page .tt-simple-stage{margin-top:28px}
+.telemetry-page .tt-simple-stage .tt-panel-head{padding:19px 22px}
+.telemetry-page .tt-simple-stage .tt-panel-head h2{font-size:34px}
+.telemetry-page .tt-simple-stage .tt-stage-controls{padding:14px 20px}
+.telemetry-page .tt-simple-stage .tt-stage-results{padding:0 20px}
+.telemetry-page .tt-simple-stage .tt-panel-note{font-size:8px}
+@media(max-width:760px){
+ .telemetry-page .tt-hero-simple .tt-hero-copy{padding:27px 21px}
+ .telemetry-page .tt-hero-simple h1{font-size:62px}
+ .telemetry-page .tt-simple-stage .tt-panel-head{padding:17px}
+ .telemetry-page .tt-simple-stage .tt-stage-controls{padding:13px 16px}
+ .telemetry-page .tt-simple-stage .tt-stage-results{padding:0 16px}
+}
