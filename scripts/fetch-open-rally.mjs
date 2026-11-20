@@ -19,11 +19,17 @@ const pick = (value, ...keys) => {
   for (const key of keys) if (value?.[key] !== undefined && value[key] !== null && value[key] !== "") return value[key];
   return null;
 };
-const flatten = (value, depth = 0) => {
-  if (depth > 8 || value == null) return [];
-  if (Array.isArray(value)) return value.flatMap(item => flatten(item, depth + 1));
-  if (typeof value !== "object") return [];
-  return Object.values(value).flatMap(item => Array.isArray(item) ? flatten(item, depth + 1) : []);
+const flatten = (value, depth = 0, found = []) => {
+  if (depth > 8 || value == null || typeof value !== "object") return found;
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      if (item && typeof item === "object" && !Array.isArray(item)) found.push(item);
+      flatten(item, depth + 1, found);
+    }
+  } else {
+    for (const child of Object.values(value)) flatten(child, depth + 1, found);
+  }
+  return [...new Set(found)];
 };
 const isoDate = value => {
   if (!value || typeof value !== "string") return null;
@@ -77,7 +83,6 @@ async function optionalJson(url, label) {
 const calendar = await getJson(BASE + "/contel-page/83388/calendar/active-season/");
 const rawEvents = list(calendar?.rallyEvents?.items);
 if (!rawEvents.length) throw new Error("WRC calendar returned no rallyEvents.items; refusing to publish an empty snapshot.");
-const now = Date.now();
 const orderedEvents = rawEvents.map(event => ({ event, dates: eventDates(event) }))
   .sort((a, b) => (Date.parse(b.dates.end || "1970-01-01") || 0) - (Date.parse(a.dates.end || "1970-01-01") || 0));
 const selected = orderedEvents.slice(0, MAX_EVENTS);
