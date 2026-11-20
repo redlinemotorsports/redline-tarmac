@@ -157,3 +157,26 @@
  .telemetry-page .tt-simple-stage .tt-stage-controls{padding:13px 16px}
  .telemetry-page .tt-simple-stage .tt-stage-results{padding:0 16px}
 }
+
+/* Compact rally pitwall */
+.telemetry-page .tt-pitwall{margin-top:36px}
+.tt-pitwall-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:16px}
+.tt-pitwall-heading h2{margin:8px 0 7px;font:400 36px/.9 var(--display)}
+.tt-pitwall-heading p:not(.eyebrow){margin:0;color:var(--muted);font-size:9px;line-height:1.7}
+.tt-pitwall-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:#1b1f22}
+.tt-pitwall-stats article{display:flex;min-width:0;flex-direction:column;gap:9px;padding:17px 19px;border-right:1px solid var(--line)}
+.tt-pitwall-stats article:last-child{border:0}
+.tt-pitwall-stats article>span{color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
+.tt-pitwall-stats article>strong{overflow:hidden;color:var(--white);font:400 clamp(20px,2.8vw,29px)/1 var(--display);text-overflow:ellipsis}
+.tt-pitwall-stats article>small{color:var(--orange);font:7px var(--mono);letter-spacing:.08em}
+.tt-movers-panel{margin-top:13px}
+.tt-movers-list{padding:0 20px}
+.tt-mover-row{display:grid;grid-template-columns:minmax(0,1fr) 70px 90px;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid var(--line)}
+.tt-mover-row:last-child{border-bottom:0}
+.tt-mover-row>strong{overflow:hidden;color:var(--white);font:600 10px var(--body);text-overflow:ellipsis;white-space:nowrap}
+.tt-mover-row>span{font:600 10px var(--mono)}
+.tt-mover-row>span.is-up{color:#9cc5a8}
+.tt-mover-row>span.is-down{color:#d28b7c}
+.tt-mover-row>small{color:var(--dim);font:8px var(--mono);text-align:right}
+@media(max-width:760px){.tt-pitwall-heading{align-items:flex-start;flex-direction:column}.tt-pitwall-stats article{padding:14px 10px}.tt-pitwall-stats article>strong{font-size:20px}.tt-movers-list{padding:0 14px}}
+@media(max-width:480px){.tt-pitwall-stats article{gap:7px;padding:12px 8px}.tt-pitwall-stats article>span,.tt-pitwall-stats article>small{font-size:6px}.tt-pitwall-stats article>strong{font-size:17px}.tt-mover-row{grid-template-columns:minmax(0,1fr) 54px 62px;gap:7px}}
