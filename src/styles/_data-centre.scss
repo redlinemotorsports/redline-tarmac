@@ -157,3 +157,31 @@
  .telemetry-page .tt-simple-stage .tt-stage-controls{padding:13px 16px}
  .telemetry-page .tt-simple-stage .tt-stage-results{padding:0 16px}
 }
+
+/* Simple rally pitwall layout */
+.telemetry-page .tt-event-console{margin-top:22px}
+.telemetry-page .tt-simple-stage{margin-top:18px}
+.tt-pitwall-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line);background:#191d20}
+.tt-pitwall-metrics article{display:flex;min-width:0;flex-direction:column;gap:9px;padding:16px 18px;border-right:1px solid var(--line)}
+.tt-pitwall-metrics article:last-child{border-right:0}
+.tt-pitwall-metrics article>span,.tt-pitwall-metrics article>small,.tt-leaderboard-heading{color:var(--dim);font:8px var(--mono);letter-spacing:.09em}
+.tt-pitwall-metrics article>strong{overflow:hidden;color:var(--white);font:500 clamp(14px,1.8vw,22px)/1.1 var(--mono);text-overflow:ellipsis;white-space:nowrap}
+.tt-pitwall-metrics article:first-child>strong{color:var(--orange);font-family:var(--body);font-size:13px;font-weight:700}
+.tt-pitwall-metrics article>small{font-size:7px}
+.tt-leaderboard-heading{display:flex;justify-content:space-between;gap:12px;padding:14px 20px 8px;color:var(--orange)}
+.tt-leaderboard-heading strong{font:700 8px var(--mono);letter-spacing:.1em}
+.tt-split-panel{margin-top:18px}
+.tt-split-panel .tt-panel-head{padding:18px 22px}
+.tt-split-panel .tt-panel-head h2{font-size:31px}
+.tt-split-panel .tt-split-list{padding:4px 20px}
+.tt-simple-stage .tt-stage-results{padding:0 20px 8px}
+@media(max-width:760px){
+.tt-pitwall-metrics{grid-template-columns:1fr 1fr}
+.tt-pitwall-metrics article{padding:13px;border-bottom:1px solid var(--line)}
+.tt-pitwall-metrics article:nth-child(2){border-right:0}
+.tt-pitwall-metrics article:nth-child(3),.tt-pitwall-metrics article:nth-child(4){border-bottom:0}
+.tt-leaderboard-heading{align-items:flex-start;flex-direction:column;padding:13px 16px 7px}
+.tt-split-panel .tt-panel-head{padding:16px}
+.tt-split-panel .tt-split-list{padding:4px 15px}
+.tt-simple-stage .tt-stage-results{padding:0 15px 8px}
+}
