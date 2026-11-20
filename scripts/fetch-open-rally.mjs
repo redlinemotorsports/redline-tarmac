@@ -254,6 +254,6 @@ if (process.env.OPEN_RALLY_DRY_RUN === "true") {
   console.log("OpenRally validation passed: " + JSON.stringify(summary));
 } else {
   await mkdir("public/data", { recursive: true });
-  await writeFile("public/data/open-rally.json", JSON.stringify(snapshot, null, 2) + "\\n");
+  await writeFile("public/data/open-rally.json", JSON.stringify(snapshot, null, 2) + "\n");
   console.log("Published OpenRally research snapshot: " + JSON.stringify(summary));
 }
