@@ -1,0 +1,24 @@
+name: Validate Redline Tarmac
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Check telemetry JavaScript syntax
+        run: |
+          node --check scripts/fetch-wrc-performance.mjs
+          node --check src/data-centre.js
+      - name: Build site
+        run: npm run build

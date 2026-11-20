@@ -32,6 +32,12 @@ jobs:
           BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
           WRC_SEASON: "2026"
         run: node scripts/fetch-rally-control.mjs
+      - name: Fetch WRC stage results and split timing
+        continue-on-error: true
+        env:
+          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
+          WRC_SEASON: "2026"
+        run: node scripts/fetch-wrc-performance.mjs
       - name: Fetch WRC standings snapshot
         env:
           BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
