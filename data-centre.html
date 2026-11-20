@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151719">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2">
-<meta name="description" content="Tarmac Telemetry — simple, verified WRC rally stage results and crew times.">
+<meta name="description" content="Tarmac Telemetry — a simple rally pitwall for verified stage results, crew pace and split times.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./src/styles/main.scss">
@@ -20,18 +20,30 @@
 <div class="kicker">REDLINE MOTORSPORTS <b>／</b> RALLY RESULTS <b>／</b> TARMAC TELEMETRY</div>
 <main class="data-centre-page telemetry-page">
 <section class="tt-hero tt-hero-simple">
-<div class="tt-hero-copy"><p class="eyebrow">04 / RALLY PERFORMANCE</p><h1>TARMAC<br><em>TELEMETRY.</em></h1><p>Follow the latest verified stage results. Pick a rally, choose a stage and see who's setting the pace.</p></div>
+<div class="tt-hero-copy"><p class="eyebrow">04 / RALLY OPERATIONS</p><h1>RALLY<br><em>PITWALL.</em></h1><p>A clear view of the rally weekend. Track the selected stage, watch the crews and check the key time gaps — all from one simple screen.</p></div>
 </section>
 <section class="tt-feedbar" aria-live="polite"><span class="tt-feed-indicator"></span><strong id="tt-feed-state">CONNECTING TO DATA FEED</strong><span id="tt-feed-message">Checking verified event and timing sources…</span><span id="tt-feed-updated">UPDATED / —</span></section>
 <section class="tt-event-console">
-<div class="tt-console-heading"><div><p class="eyebrow">01 / EVENT MONITOR</p><h2>Choose your rally.</h2><p>Select an event and stage to view the verified results.</p></div><span class="tt-console-index">EVENT SELECTOR / 2026</span></div>
-<div class="tt-event-controls"><label for="tt-event-select">WRC EVENT<select id="tt-event-select"><option value="">Loading event schedule…</option></select></label><div class="tt-event-summary"><span id="tt-event-round">ROUND / —</span><strong id="tt-event-name">Awaiting event schedule</strong><small id="tt-event-location">EVENT LOCATION / —</small></div><div class="tt-event-status"><span class="tt-status-label">STAGE DATA</span><strong id="tt-event-timing">NOT AVAILABLE</strong><small>VERIFIED RESULTS ONLY</small></div></div>
+<div class="tt-console-heading"><div><p class="eyebrow">01 / EVENT CONTROL</p><h2>Event monitor.</h2><p>Select a rally to load its available stage information.</p></div><span class="tt-console-index">RALLY CONTROL DESK / WRC</span></div>
+<div class="tt-event-controls"><label for="tt-event-select">WRC EVENT<select id="tt-event-select"><option value="">Loading event schedule…</option></select></label><div class="tt-event-summary"><span id="tt-event-round">ROUND / —</span><strong id="tt-event-name">Awaiting event schedule</strong><small id="tt-event-location">EVENT LOCATION / —</small></div><div class="tt-event-status"><span class="tt-status-label">DATA STATUS</span><strong id="tt-event-timing">NOT AVAILABLE</strong><small>SNAPSHOT · NOT LIVE TIMING</small></div></div>
 </section>
 <section class="tt-panel tt-stage-panel tt-simple-stage">
-<header class="tt-panel-head"><div><p class="eyebrow">02 / STAGE RESULTS</p><h2>Stage leaderboard.</h2><p>Verified stage times, positions and gaps to the fastest crew.</p></div><span id="tt-stage-result-count">— CREWS</span></header>
-<div class="tt-stage-controls"><label for="tt-stage-select">CHOOSE A STAGE<select id="tt-stage-select"><option value="">Loading stage data…</option></select></label><span id="tt-stage-title">STAGE CLASSIFICATION</span></div>
+<header class="tt-panel-head"><div><p class="eyebrow">02 / STAGE CONTROL</p><h2>Stage overview.</h2><p>Key information from the selected stage, at a glance.</p></div><span id="tt-stage-result-count">— CREWS</span></header>
+<div class="tt-stage-controls"><label for="tt-stage-select">SELECT STAGE<select id="tt-stage-select"><option value="">Loading stage data…</option></select></label><span id="tt-stage-title">STAGE CLASSIFICATION</span></div>
+<div class="tt-pitwall-metrics" aria-live="polite">
+<article><span>FASTEST CREW</span><strong id="tt-pitwall-fastest">—</strong><small>STAGE LEADER</small></article>
+<article><span>WINNING TIME</span><strong id="tt-pitwall-time">—</strong><small>VERIFIED STAGE TIME</small></article>
+<article><span>GAP TO P2</span><strong id="tt-pitwall-gap">—</strong><small>SECOND PLACE</small></article>
+<article><span>SPLIT RECORDS</span><strong id="tt-pitwall-splits">—</strong><small>AVAILABLE CHECKPOINTS</small></article>
+</div>
+<div class="tt-leaderboard-heading"><strong>STAGE CLASSIFICATION</strong><span>POSITION / CREW / TIME / GAP</span></div>
 <div id="tt-stage-results" class="tt-stage-results"><p class="tt-data-placeholder">Waiting for verified stage results…</p></div>
 <p class="tt-panel-note" id="tt-stage-feed-note">Only verified results are shown. No simulated times or estimated positions.</p>
+</section>
+<section class="tt-panel tt-split-panel">
+<header class="tt-panel-head"><div><p class="eyebrow">03 / TIME CHECKPOINTS</p><h2>Split times.</h2><p>Verified intermediate times where the provider has published them.</p></div><span>STAGE SECTOR DATA</span></header>
+<div id="tt-split-results" class="tt-split-list"><p class="tt-data-placeholder">Select a stage to view available split records.</p></div>
+<p class="tt-panel-note">Split data is shown only when supplied in the verified snapshot. This page does not represent live in-stage tracking.</p>
 </section>
 </main>
 <footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>INDEPENDENT RALLY INTELLIGENCE · PROTOTYPE</span><span>DATA: BLACKTOP DATA WRC API / SCHEDULED SNAPSHOTS</span></footer>
