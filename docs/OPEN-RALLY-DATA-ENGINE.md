@@ -57,3 +57,6 @@ The normalized output is the contract for future adapters. Add providers behind 
 ## Important distinction
 
 RallyDJ and RallyDataJunkie are useful community tools around WRC's public timing service, not independent timing providers. This adapter uses the underlying WRC endpoints directly so we can own the normalization and caching layer; it does not imply an official WRC partnership or endorsement.
+## Validation-only run
+
+The `.github/workflows/validate-open-rally.yml` workflow checks the adapter against one current event without publishing or deploying any fetched data. It runs on relevant changes to the adapter/workflow and can also be started manually after it is merged to the default branch. The workflow sets `OPEN_RALLY_DRY_RUN=true`; the script reports aggregate record counts only and does not write `public/data/open-rally.json`. This validates endpoint reachability and the expected response shape, not permission to redistribute the underlying data.

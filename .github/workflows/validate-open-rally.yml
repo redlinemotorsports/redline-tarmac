@@ -1,0 +1,33 @@
+name: Validate OpenRally source schema
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch-open-rally.mjs"
+      - ".github/workflows/validate-open-rally.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: open-rally-validation
+  cancel-in-progress: true
+
+jobs:
+  validate-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check adapter syntax
+        run: node --check scripts/fetch-open-rally.mjs
+      - name: Fetch and validate one current WRC event (no publication)
+        env:
+          OPEN_RALLY_DRY_RUN: "true"
+          OPEN_RALLY_MAX_EVENTS: "1"
+        run: node scripts/fetch-open-rally.mjs

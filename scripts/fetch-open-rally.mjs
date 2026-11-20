@@ -240,6 +240,20 @@ const snapshot = {
 if (!rallies.some(rally => rally.crews.length || rally.stages.length || rally.overallResults.length)) {
   throw new Error("WRC feed returned no recognizable crew, stage or classification data; refusing to publish.");
 }
-await mkdir("public/data", { recursive: true });
-await writeFile("public/data/open-rally.json", JSON.stringify(snapshot, null, 2) + "\n");
-console.log(`Published OpenRally research snapshot: ${rallies.length} rallies, ${rallies.reduce((n, rally) => n + rally.stages.length, 0)} stages, ${requestCount} requests.`);
+const summary = {
+  mode: process.env.OPEN_RALLY_DRY_RUN === "true" ? "validation-only" : "publish",
+  rallies: rallies.length,
+  crews: rallies.reduce((n, rally) => n + rally.crews.length, 0),
+  stages: rallies.reduce((n, rally) => n + rally.stages.length, 0),
+  stageClassifications: rallies.reduce((n, rally) => n + rally.stages.reduce((m, stage) => m + stage.classification.length, 0), 0),
+  splitTimes: rallies.reduce((n, rally) => n + rally.stages.reduce((m, stage) => m + stage.splitTimes.length, 0), 0),
+  overallResults: rallies.reduce((n, rally) => n + rally.overallResults.length, 0),
+  requestCount
+};
+if (process.env.OPEN_RALLY_DRY_RUN === "true") {
+  console.log("OpenRally validation passed: " + JSON.stringify(summary));
+} else {
+  await mkdir("public/data", { recursive: true });
+  await writeFile("public/data/open-rally.json", JSON.stringify(snapshot, null, 2) + "\n");
+  console.log("Published OpenRally research snapshot: " + JSON.stringify(summary));
+}
