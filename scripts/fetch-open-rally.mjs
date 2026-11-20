@@ -31,11 +31,6 @@ const flatten = (value, depth = 0, found = []) => {
   }
   return [...new Set(found)];
 };
-const isoDate = value => {
-  if (!value || typeof value !== "string") return null;
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? null : date.toISOString();
-};
 const dateCandidates = value => {
   const found = [];
   const visit = (node, depth = 0) => {
@@ -60,8 +55,10 @@ const durationSeconds = row => {
   if (ms !== null) return ms / 1000;
   const raw = pick(row, "elapsedDuration", "stageTime", "totalTime");
   if (typeof raw !== "string") return null;
-  const match = raw.match(/^PT(?:(\d+(?:\.\d+)?)H)?(?:(\d+(?:\.\d+)?)M)?(?:(\d+(?:\.\d+)?)S)?$/i);
-  return match ? Number(match[1] || 0) * 3600 + Number(match[2] || 0) * 60 + Number(match[3] || 0) : null;
+  const iso = raw.match(/^PT(?:(\d+(?:\.\d+)?)H)?(?:(\d+(?:\.\d+)?)M)?(?:(\d+(?:\.\d+)?)S)?$/i);
+  if (iso) return Number(iso[1] || 0) * 3600 + Number(iso[2] || 0) * 60 + Number(iso[3] || 0);
+  const clock = raw.match(/^(?:(\d+):)?(\d{1,2}):(\d{1,2}(?:\.\d+)?)$/);
+  return clock ? Number(clock[1] || 0) * 3600 + Number(clock[2]) * 60 + Number(clock[3]) : null;
 };
 const eventUrl = (id, path) => `${RESULTS}/rally-event/${encodeURIComponent(id)}/${path}`;
 const crewName = person => pick(person, "fullName", "abbvName", "name") || null;
