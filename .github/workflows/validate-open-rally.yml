@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check adapter syntax
+        run: node --check scripts/fetch-open-rally.mjs
       - name: Fetch and validate one current WRC event (no publication)
         env:
           OPEN_RALLY_DRY_RUN: "true"
