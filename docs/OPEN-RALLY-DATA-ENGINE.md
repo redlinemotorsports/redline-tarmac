@@ -2,7 +2,7 @@
 
 ## Purpose
 
-OpenRally is a provider-independent, rally-only ingestion and normalization layer for Redline Tarmac. It publishes a separate JSON snapshot so experimental providers cannot overwrite the existing Blacktop-backed production snapshots.
+OpenRally is a provider-independent, rally-only ingestion and normalization layer for Redline Tarmac. It publishes a separate JSON snapshot as the primary detailed timing adapter, with Moto-DB supplying a secondary schedule and event-winner dataset.
 
 ## Current first adapter
 
@@ -35,15 +35,15 @@ It does **not** create RPM, boost, throttle, brake, tyre, suspension, GPS or oth
 
 ## Safety and publishing policy
 
-The WRC endpoints used by this adapter are community-documented, unofficial and undocumented as a stable public developer API. Their continued availability, rate limits, access terms and public redistribution rights are not guaranteed. This adapter is therefore opt-in and does not replace the existing production feed.
+The WRC endpoints used by this adapter are community-documented, unofficial and undocumented as a stable public developer API. Their continued availability, rate limits, access terms and public redistribution rights are not guaranteed. This adapter is attempted on every scheduled build. If it is unavailable, the Moto-DB schedule remains available while detailed timing is clearly marked unavailable.
 
-Enable it only after reviewing applicable WRC website/API terms and confirming the intended display rights:
+Before public display, review applicable WRC website/API terms and confirm the intended display rights:
 
 1. Add the repository Actions variable `ENABLE_OPEN_RALLY_FEED=true`.
 2. Optionally set `OPEN_RALLY_MAX_EVENTS` (1–3; default 2).
 3. Run the deployment workflow manually or wait for the next scheduled build.
 
-If the provider changes its response schema or denies access, the step fails without blocking the current Blacktop-backed site deployment. The previous OpenRally snapshot is not overwritten by an empty or unrecognized response.
+If the provider changes its response schema or denies access, the step fails without blocking the Moto-DB-backed schedule deployment. The previous OpenRally snapshot is not overwritten by an empty or unrecognized response.
 
 ## Architecture and next adapters
 

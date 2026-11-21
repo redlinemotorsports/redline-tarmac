@@ -18,10 +18,10 @@ jobs:
           node-version: 22
       - run: npm install
       - run: node --check scripts/fetch-rally-news.mjs
-      - run: node --check scripts/fetch-rally-control.mjs
+      - run: node --check scripts/fetch-open-rally.mjs
+      - run: node --check scripts/fetch-moto-db.mjs
       - run: node --check src/rally-control-data.js
       - run: node --check src/data-centre.js
-      - run: node --check scripts/fetch-wrc-performance.mjs
       - run: node --check src/newsroom-feed.js
       - name: Verify live rally feed ingestion
         run: |

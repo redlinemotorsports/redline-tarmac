@@ -31,7 +31,7 @@ function renderRallyEvents(snapshot) {
 
   if (count) count.textContent = String(events.length).padStart(2, "0") + " EVENTS";
   if (season) season.textContent = String(snapshot.season || "WRC") + " SEASON";
-  status.textContent = "Schedule supplied by " + (snapshot.provider || "Blacktop Data") +
+  status.textContent = "Schedule supplied by " + (snapshot.provider || "Moto-DB schedule") +
     " · Updated " + new Intl.DateTimeFormat("en-MY", {
       timeZone: "Asia/Kuala_Lumpur", day: "2-digit", month: "short",
       year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false
