@@ -20,17 +20,11 @@ jobs:
         run: |
           node --check scripts/fetch-open-rally.mjs
           node --check scripts/fetch-moto-db.mjs
-          node --check scripts/fetch-wrc-standings.mjs
           node --check src/data-centre.js
           node --check src/rally-control-data.js
       - name: Validate Moto-DB schedule and normalized snapshots
         env:
           WRC_SEASON: "2026"
         run: node scripts/fetch-moto-db.mjs
-      - name: Validate FIA standings feed
-        continue-on-error: true
-        env:
-          WRC_SEASON: "2026"
-        run: node scripts/fetch-wrc-standings.mjs
       - name: Build site
         run: npm run build
