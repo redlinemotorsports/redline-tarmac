@@ -27,7 +27,7 @@ Reference: https://results-api.statusas.com/documentation/index.html
 - `public/data/rally-control.json`: season calendar, Moto-DB schedule with WRC event enrichment when IDs can be matched.
 - `public/data/performance.json`: detailed stage data only when the WRC Live Timing adapter returns verified records.
 - `public/data/open-rally.json`: normalized raw provider-independent WRC timing snapshot.
-- `public/data/standings.json`: FIA official standings when the FIA page can be parsed completely.
+- Championship standings are intentionally not refreshed by this migration: the FIA page could be fetched but its standings tables were not exposed in a stable machine-readable structure. Existing standings will be marked unavailable rather than silently sourced from the retired provider.
 
 No fabricated stage timing, incidents, championship points or vehicle sensor telemetry are published. Missing data remains explicitly unavailable.
 
