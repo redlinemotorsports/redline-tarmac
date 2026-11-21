@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151719">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2">
-<meta name="description" content="Rally Onboard — official WRC stage onboards, rally highlights and raw action curated by Redline Tarmac.">
+<meta name="description" content="Rally Onboard — official WRC stage onboards, rally highlights and rally viewing tools curated by Redline Tarmac.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./src/styles/main.scss">
@@ -23,15 +23,71 @@
 <div class="onboard-hero-copy"><p class="eyebrow">04 / INSIDE THE STAGE</p><h1>RALLY<br><em>ONBOARD.</em></h1><p>Hear the notes. Feel the grip. Ride every crest from the crew’s seat. A curated window into official WRC onboard footage and rally action.</p><div class="onboard-hero-meta"><span>OFFICIAL WRC VIDEO</span><span>CURATED BY REDLINE TARMAC</span></div></div>
 <div class="onboard-hero-art"><img src="https://i.ytimg.com/vi/6L0KqdXPZ9s/hqdefault.jpg" alt="Official WRC onboard video preview from Rallye Monte-Carlo 2026"><span class="onboard-art-label">FULL STAGE / MONTE-CARLO 2026</span><span class="onboard-art-index">04</span></div>
 </section>
+
 <section class="onboard-feature">
 <header class="onboard-section-head"><div><p class="eyebrow">01 / THE FEATURE</p><h2>Three hours.<br><em>Flat out.</em></h2><p>A season-spanning compilation of official WRC onboard action, from snow and ice to gravel and asphalt.</p></div><span>FEATURED / WRC 2026</span></header>
 <div class="onboard-player-layout">
 <div class="onboard-player-wrap"><div class="onboard-player" id="onboard-player"><iframe title="3 Hours of Pure WRC Onboard Action — 2026" src="https://www.youtube-nocookie.com/embed/X0NUtYff9Xc?rel=0&modestbranding=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="onboard-player-caption"><strong id="onboard-player-title">3 HOURS of PURE WRC Onboard Action! | 2026</strong><a id="onboard-player-source" href="https://www.youtube.com/watch?v=X0NUtYff9Xc" target="_blank" rel="noopener noreferrer">WATCH ON YOUTUBE ↗</a></div></div>
 <aside class="onboard-feature-note"><span class="onboard-note-index">REDLINE / 001</span><h3>From the first note to the final crest.</h3><p>One long-form cut across the 2026 season. Use the chapter markers in the original video to jump between rallies and surfaces.</p><div class="onboard-note-meta"><span>FORMAT</span><b>LONG-FORM COMPILATION</b><span>CHANNEL</span><b>FIA WORLD RALLY CHAMPIONSHIP</b></div><a href="https://www.rally.tv/" target="_blank" rel="noopener noreferrer">EXPLORE THE RALLY.TV ARCHIVE ↗</a></aside>
 </div>
+<div class="onboard-cockpit" aria-live="polite">
+<div class="onboard-cockpit-heading"><p class="eyebrow">ONBOARD IDENTIFICATION</p><span>VIDEO METADATA / SELECTED RUN</span></div>
+<div class="onboard-cockpit-grid">
+<div><small>DRIVER / CREW</small><strong id="onboard-meta-crew">Season compilation</strong></div>
+<div><small>RALLY</small><strong id="onboard-meta-event">Multiple events</strong></div>
+<div><small>STAGE</small><strong id="onboard-meta-stage">Multiple stages</strong></div>
+<div><small>FOOTAGE TYPE</small><strong id="onboard-meta-type">Long-form compilation</strong></div>
+<div><small>SURFACE</small><strong id="onboard-meta-surface">Multiple / not individually tagged</strong></div>
+</div>
+</div>
 </section>
+
+<section class="onboard-explorer" id="stage-explorer">
+<header class="onboard-section-head"><div><p class="eyebrow">02 / STAGE EXPLORER</p><h2>Find your run.</h2><p>Filter the current curated archive by rally, crew or stage. Results only include details present in the video listing.</p></div><span>ARCHIVE INDEX / 2026</span></header>
+<div class="onboard-explorer-controls">
+<label>SEARCH THE ARCHIVE<input id="onboard-search" type="search" placeholder="Driver, rally or stage…"></label>
+<label>RALLY<select id="onboard-event-filter"><option value="all">ALL EVENTS</option></select></label>
+<label>CREW<select id="onboard-driver-filter"><option value="all">ALL CREWS</option></select></label>
+</div>
+<div class="onboard-explorer-result"><span id="onboard-explorer-count">04 MATCHING VIDEOS</span><span>SELECT A RESULT TO LOAD IT IN THE FEATURE PLAYER</span></div>
+</section>
+
+<section class="onboard-compare">
+<header class="onboard-section-head"><div><p class="eyebrow">03 / DRIVER COMPARISON</p><h2>Two crews. One screen.</h2><p>Load two videos side by side and compare their onboard perspective. This is a video comparison, not a synchronized telemetry analysis.</p></div><span>DUAL VIEW / MANUAL PLAYBACK</span></header>
+<div class="onboard-compare-controls">
+<label>LEFT SCREEN<select id="onboard-compare-left"></select></label>
+<label>RIGHT SCREEN<select id="onboard-compare-right"></select></label>
+<button type="button" id="onboard-compare-load" class="onboard-compare-button">LOAD COMPARISON <span>↗</span></button>
+</div>
+<div class="onboard-compare-grid">
+<article class="onboard-compare-panel"><div class="onboard-compare-screen"><iframe id="onboard-compare-frame-left" title="Left onboard comparison video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="onboard-compare-caption"><b id="onboard-compare-title-left">Select a video</b><a id="onboard-compare-link-left" href="https://www.youtube.com/@wrc" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></div></article>
+<article class="onboard-compare-panel"><div class="onboard-compare-screen"><iframe id="onboard-compare-frame-right" title="Right onboard comparison video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="onboard-compare-caption"><b id="onboard-compare-title-right">Select a video</b><a id="onboard-compare-link-right" href="https://www.youtube.com/@wrc" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></div></article>
+</div>
+<p class="onboard-compare-note">Playback is independent in each window. Pause and seek manually to compare the moments you want.</p>
+</section>
+
+<section class="onboard-conditions">
+<header class="onboard-section-head"><div><p class="eyebrow">04 / STAGE CONDITIONS</p><h2>Know the surface.</h2><p>Context helps explain what you see from the cockpit. Unavailable information is labelled rather than estimated.</p></div><span>VERIFIED CONTEXT ONLY</span></header>
+<div class="onboard-conditions-grid">
+<article><span class="onboard-condition-icon">01</span><div><b>ROAD SURFACE</b><strong id="onboard-condition-surface">Not individually tagged</strong><small>Shown when confirmed by the video source</small></div></article>
+<article><span class="onboard-condition-icon">02</span><div><b>WEATHER</b><strong>Not supplied</strong><small>No live or historical weather feed connected</small></div></article>
+<article><span class="onboard-condition-icon">03</span><div><b>STAGE LOCATION</b><strong>See event listing</strong><small>Exact stage coordinates are not supplied</small></div></article>
+<article><span class="onboard-condition-icon">04</span><div><b>ROAD / GRIP NOTES</b><strong>Not supplied</strong><small>No verified stage-condition report attached</small></div></article>
+</div>
+</section>
+
+<section class="onboard-notes">
+<header class="onboard-section-head"><div><p class="eyebrow">05 / CO-DRIVER CORNER</p><h2>Read the road.</h2><p>A quick guide to common rally pace-note language. Exact calls and notation vary between crews.</p></div><span>RALLY BASICS / 01</span></header>
+<div class="onboard-glossary">
+<article><span>01</span><div><b>PACE NOTES</b><p>A shorthand description of the road ahead, called by the co-driver so the driver can prepare for corners and hazards before seeing them.</p></div></article>
+<article><span>02</span><div><b>CORNER GRADING</b><p>Numbers commonly describe corner severity. The scale and direction can differ between crews, so never assume one universal system.</p></div></article>
+<article><span>03</span><div><b>DISTANCE CALLS</b><p>Measurements such as metres help the driver judge when the next corner, crest or junction is approaching.</p></div></article>
+<article><span>04</span><div><b>CAUTIONS & HAZARDS</b><p>Calls such as “caution”, “double caution” or “jump” flag features that need extra attention or a change in approach.</p></div></article>
+</div>
+</section>
+
 <section class="onboard-library">
-<header class="onboard-section-head"><div><p class="eyebrow">02 / THE VIDEO LIBRARY</p><h2>Choose your seat.</h2><p>Switch between official full-stage onboard runs and long-form rally action.</p></div><span id="onboard-video-count">04 VIDEOS / CURATED</span></header>
+<header class="onboard-section-head"><div><p class="eyebrow">06 / THE VIDEO LIBRARY</p><h2>Choose your seat.</h2><p>Browse official full-stage onboard runs and long-form rally action from the curated archive.</p></div><span id="onboard-video-count">04 VIDEOS / CURATED</span></header>
 <div class="onboard-filterbar" role="group" aria-label="Filter videos">
 <button class="onboard-filter is-active" type="button" data-filter="all" aria-pressed="true">ALL VIDEOS</button>
 <button class="onboard-filter" type="button" data-filter="onboard" aria-pressed="false">FULL STAGE ONBOARD</button>
@@ -39,8 +95,9 @@
 </div>
 <div class="onboard-video-grid" id="onboard-video-grid" aria-live="polite"></div>
 </section>
+
 <section class="onboard-sourcebar"><div><p class="eyebrow">THE ORIGINAL BROADCASTERS</p><h2>Go deeper into the rally.</h2><p>More full-stage replays, event highlights and documentaries are available through the official WRC video channels. Some long-form and live content may require a Rally.TV subscription.</p></div><div class="onboard-source-actions"><a href="https://www.youtube.com/@wrc" target="_blank" rel="noopener noreferrer">WRC ON YOUTUBE ↗</a><a href="https://www.rally.tv/" target="_blank" rel="noopener noreferrer">RALLY.TV / FULL ARCHIVE ↗</a></div></section>
-<p class="onboard-disclaimer">Videos are embedded from the FIA World Rally Championship’s official YouTube channel. Redline Tarmac does not host or re-upload third-party footage. Availability, playback and regional restrictions are controlled by the original publisher.</p>
+<p class="onboard-disclaimer">Videos are embedded from the FIA World Rally Championship’s official YouTube channel. Redline Tarmac does not host or re-upload third-party footage. Availability, playback and regional restrictions are controlled by the original publisher. Video metadata is limited to information available in the publisher’s title and description.</p>
 </main>
 <footer><b>RT　REDLINE TARMAC</b><span>A REDLINE MOTORSPORTS PROJECT</span><span>RALLY ONBOARD / OFFICIAL VIDEO SOURCES</span><span>FOOTAGE: FIA WORLD RALLY CHAMPIONSHIP</span></footer>
 </div>
