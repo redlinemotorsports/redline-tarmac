@@ -34,11 +34,6 @@ jobs:
         run: node scripts/fetch-open-rally.mjs
       - name: Fetch Moto-DB schedule and publish normalized rally snapshots
         run: node scripts/fetch-moto-db.mjs
-      - name: Fetch official FIA championship standings
-        continue-on-error: true
-        env:
-          WRC_SEASON: "2026"
-        run: node scripts/fetch-wrc-standings.mjs
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
