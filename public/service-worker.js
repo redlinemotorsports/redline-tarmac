@@ -1,5 +1,5 @@
-const CACHE_NAME = "redline-tarmac-shell-v1";
-const CORE_PAGES = ["./", "./index.html", "./standings.html", "./rally-control.html", "./data-centre.html", "./newsroom.html", "./favicon.svg"];
+const CACHE_NAME = "redline-tarmac-shell-v2";
+const CORE_PAGES = ["./", "./index.html", "./standings.html", "./rally-control.html", "./onboard.html", "./newsroom.html", "./favicon.svg"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_PAGES)).then(() => self.skipWaiting()));
 });
