@@ -1,4 +1,4 @@
-const CACHE_KEY = "redline-tarmac:wrc-standings:v1";
+const CACHE_KEY = "redline-tarmac:wrc-standings:v2";
 const validSnapshot = value => value &&
   value.championship === "WRC" &&
   value.categories &&
