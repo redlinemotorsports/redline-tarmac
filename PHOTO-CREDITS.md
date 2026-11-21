@@ -13,3 +13,5 @@ All photographs are displayed with attribution and linked to their source and li
 6. **Hyundai Motorsport team celebrating victory at Rally de Portugal 2018** — Helena El Mokni. [Source](https://commons.wikimedia.org/wiki/File:2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Used as the Tarmac Dispatch hero photograph with the page’s grayscale treatment.
 
 7. **Rally Onboard video thumbnails and embedded footage** — FIA World Rally Championship official YouTube channel. Videos remain embedded from YouTube and are not downloaded or rehosted by Redline Tarmac.
+
+8. **Sébastien Ogier / Julien Ingrassia, Volkswagen Polo R WRC, Rally Argentina 2013 (onboard cockpit photograph)** — Alejandro Zurcher. [Source](https://commons.wikimedia.org/wiki/File:S%C3%A9bastien_Ogier_%26_Julien_Ingrassia_Volkswagen_Polo_R_WRC_2013.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Used as a cropped Rally Onboard hero photograph with a dark gradient overlay; the original image is not altered.
