@@ -180,3 +180,58 @@
 .tt-mover-row>small{color:var(--dim);font:8px var(--mono);text-align:right}
 @media(max-width:760px){.tt-pitwall-heading{align-items:flex-start;flex-direction:column}.tt-pitwall-stats article{padding:14px 10px}.tt-pitwall-stats article>strong{font-size:20px}.tt-movers-list{padding:0 14px}}
 @media(max-width:480px){.tt-pitwall-stats article{gap:7px;padding:12px 8px}.tt-pitwall-stats article>span,.tt-pitwall-stats article>small{font-size:6px}.tt-pitwall-stats article>strong{font-size:17px}.tt-mover-row{grid-template-columns:minmax(0,1fr) 54px 62px;gap:7px}}
+
+
+/* Tarmac Telemetry — OpenRally performance workspace */
+.telemetry-page .tt-hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.telemetry-page .tt-hero-tags span{padding:7px 9px;border:1px solid #41484d;color:#aeb4b6;font:7px var(--mono);letter-spacing:.1em}
+.tt-workspace-console{margin-top:24px}
+.tt-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:38px 0 16px}
+.tt-section-heading h2{margin:8px 0 7px;font:400 39px/.9 var(--display)}
+.tt-section-heading p:not(.eyebrow){margin:0;color:var(--muted);font-size:9px;line-height:1.7}
+.tt-section-heading>label{display:grid;gap:7px;min-width:250px;color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
+.tt-section-heading select{min-height:42px;padding:0 12px;border:1px solid #41484d;background:#24282c;color:var(--white);font:10px var(--mono)}
+.tt-kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:#1b1f22}
+.tt-kpi-grid article{display:flex;min-width:0;flex-direction:column;gap:11px;padding:18px 17px;border-right:1px solid var(--line)}
+.tt-kpi-grid article:last-child{border:0}
+.tt-kpi-grid article>span{color:var(--dim);font:8px var(--mono);letter-spacing:.1em}
+.tt-kpi-grid article>strong{overflow:hidden;color:var(--white);font:400 clamp(20px,2.6vw,31px)/1 var(--display);text-overflow:ellipsis;white-space:nowrap}
+.tt-kpi-grid article>small{color:var(--orange);font:7px var(--mono);letter-spacing:.06em}
+.tt-analysis-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:14px;margin-top:14px}
+.tt-analysis-layout .tt-panel{min-width:0}
+.tt-stage-results{padding:0 18px}
+.tt-result-row{display:grid;grid-template-columns:30px minmax(0,1fr) 92px 68px;align-items:center;gap:10px;min-height:59px;padding:8px 0;border-bottom:1px solid var(--line)}
+.tt-result-row>span,.tt-overall-row>span{color:var(--orange);font:10px var(--mono)}
+.tt-result-crew{display:grid;gap:4px;min-width:0}
+.tt-result-crew strong{overflow:hidden;color:var(--white);font:600 10px var(--body);text-overflow:ellipsis;white-space:nowrap}
+.tt-result-crew small{overflow:hidden;color:var(--dim);font:7px var(--mono);text-overflow:ellipsis;white-space:nowrap}
+.tt-result-row>b{color:var(--white);font:500 10px var(--mono);text-align:right}
+.tt-result-row>em{color:var(--dim);font:8px var(--mono);font-style:normal;text-align:right}
+.tt-split-list{padding:0 18px}
+.tt-split-row{display:grid;grid-template-columns:1fr minmax(80px,.8fr) 78px;align-items:center;gap:8px;min-height:62px;border-bottom:1px solid var(--line)}
+.tt-split-row>span{color:var(--dim);font:7px var(--mono);letter-spacing:.04em}
+.tt-split-row>div{display:grid;gap:4px;min-width:0}
+.tt-split-row>div strong{overflow:hidden;color:var(--white);font:600 9px var(--body);text-overflow:ellipsis;white-space:nowrap}
+.tt-split-row>div small{color:var(--orange);font:6px var(--mono)}
+.tt-split-row>b{color:var(--white);font:500 10px var(--mono);text-align:right}
+.tt-overall-panel{margin-top:36px}
+.tt-overall-panel .tt-panel{margin-top:14px}
+.tt-overall-results{padding:0 20px}
+.tt-overall-row{display:grid;grid-template-columns:28px minmax(110px,1fr) minmax(80px,.7fr) 100px 65px;align-items:center;gap:10px;min-height:48px;border-bottom:1px solid var(--line)}
+.tt-overall-row strong{overflow:hidden;color:var(--white);font:600 9px var(--body);text-overflow:ellipsis;white-space:nowrap}
+.tt-overall-row small,.tt-overall-row em{overflow:hidden;color:var(--dim);font:7px var(--mono);font-style:normal;text-overflow:ellipsis;white-space:nowrap}
+.tt-overall-row b{color:var(--white);font:500 9px var(--mono);text-align:right}
+.tt-support-layout{grid-template-columns:1fr 1fr;margin-top:14px}
+.tt-entry-list,.tt-incident-list{padding:0 18px}
+.tt-entry-row{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tt-entry-row strong{color:var(--white);font:600 9px var(--body)}
+.tt-entry-row span{color:#c2c5c4;font:8px var(--body)}
+.tt-entry-row small{color:var(--dim);font:7px var(--mono)}
+.tt-incident-row{display:grid;grid-template-columns:75px minmax(0,1fr);gap:5px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tt-incident-row>span{grid-row:span 2;color:var(--orange);font:7px var(--mono)}
+.tt-incident-row strong{color:var(--white);font:600 9px var(--body)}
+.tt-incident-row small{color:var(--dim);font:7px var(--mono)}
+.tt-source-disclaimer{margin:18px 0 0;color:var(--dim);font:7px/1.7 var(--mono);letter-spacing:.035em}
+@media(max-width:900px){.tt-analysis-layout{grid-template-columns:1fr}.tt-kpi-grid{grid-template-columns:1fr 1fr}.tt-kpi-grid article:nth-child(2){border-right:0}.tt-kpi-grid article:nth-child(3){border-top:1px solid var(--line)}.tt-kpi-grid article:nth-child(4){border-top:1px solid var(--line)}}
+@media(max-width:760px){.tt-section-heading{align-items:flex-start;flex-direction:column}.tt-section-heading>label{width:100%;min-width:0}.tt-overall-row{grid-template-columns:23px minmax(90px,1fr) 78px 54px;gap:7px}.tt-overall-row small{display:none}.tt-overall-row b{font-size:8px}.tt-stage-results,.tt-overall-results{padding:0 13px}.tt-result-row{grid-template-columns:22px minmax(0,1fr) 75px 48px;gap:6px}.tt-result-row>em{font-size:7px}.tt-split-list{padding:0 13px}}
+@media(max-width:480px){.tt-kpi-grid article{padding:13px 10px;gap:8px}.tt-kpi-grid article>span,.tt-kpi-grid article>small{font-size:6px}.tt-kpi-grid article>strong{font-size:20px}.tt-split-row{grid-template-columns:1fr minmax(70px,.8fr) 65px;gap:5px}.tt-split-row>span{font-size:6px}.tt-incident-row{grid-template-columns:65px minmax(0,1fr)}}
