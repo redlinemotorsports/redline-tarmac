@@ -21,6 +21,7 @@ jobs:
           node --check scripts/fetch-open-rally.mjs
           node --check scripts/fetch-moto-db.mjs
           node --check src/data-centre.js
+          node --check src/onboard.js
           node --check src/rally-control-data.js
       - name: Validate Moto-DB schedule and normalized snapshots
         env:

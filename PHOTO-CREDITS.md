@@ -11,3 +11,5 @@ All photographs are displayed with attribution and linked to their source and li
 5. **Kalle Rovanperä / Jonne Halttunen, Toyota GR Yaris Rally1 Hybrid, 2023 Central European Rally** — Miloslav Rejha. [Source](https://commons.wikimedia.org/wiki/File:2023_Central_European_Rally_-_Rovanper%C3%A4_03.jpg) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used as a cropped Home hero photograph; no other image edits.
 
 6. **Hyundai Motorsport team celebrating victory at Rally de Portugal 2018** — Helena El Mokni. [Source](https://commons.wikimedia.org/wiki/File:2018_Rally_de_Portugal_-_Hyundai_Motorsport.jpg) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Used as the Tarmac Dispatch hero photograph with the page’s grayscale treatment.
+
+7. **Rally Onboard video thumbnails and embedded footage** — FIA World Rally Championship official YouTube channel. Videos remain embedded from YouTube and are not downloaded or rehosted by Redline Tarmac.
