@@ -1,4 +1,4 @@
-name: Refresh WRC standings cache
+name: Build and deploy Redline Tarmac
 
 on:
   push:
@@ -27,26 +27,16 @@ jobs:
       - run: npm install
       - name: Fetch rally newsroom headlines
         run: node scripts/fetch-rally-news.mjs
-      - name: Fetch WRC Rally Control calendar
-        env:
-          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
-          WRC_SEASON: "2026"
-        run: node scripts/fetch-rally-control.mjs
-      - name: Fetch WRC stage results and split timing
+      - name: Fetch WRC Live Timing data (primary)
         continue-on-error: true
         env:
-          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
-          WRC_SEASON: "2026"
-        run: node scripts/fetch-wrc-performance.mjs
-      - name: Fetch OpenRally research snapshot (opt-in)
-        if: vars.ENABLE_OPEN_RALLY_FEED == 'true'
-        continue-on-error: true
-        env:
-          OPEN_RALLY_MAX_EVENTS: ${{ vars.OPEN_RALLY_MAX_EVENTS || '2' }}
+          OPEN_RALLY_MAX_EVENTS: "3"
         run: node scripts/fetch-open-rally.mjs
-      - name: Fetch WRC standings snapshot
+      - name: Fetch Moto-DB schedule and publish normalized rally snapshots
+        run: node scripts/fetch-moto-db.mjs
+      - name: Fetch official FIA championship standings
+        continue-on-error: true
         env:
-          BLACKTOP_API_KEY: ${{ secrets.BLACKTOP_API_KEY }}
           WRC_SEASON: "2026"
         run: node scripts/fetch-wrc-standings.mjs
       - run: npm run build
