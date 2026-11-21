@@ -10,7 +10,7 @@ export default defineConfig({
         standings: resolve(process.cwd(), "standings.html"),
         rallyControl: resolve(process.cwd(), "rally-control.html"),
         newsroom: resolve(process.cwd(), "newsroom.html"),
-        dataCentre: resolve(process.cwd(), "data-centre.html")
+        onboard: resolve(process.cwd(), "onboard.html")
       }
     }
   }
