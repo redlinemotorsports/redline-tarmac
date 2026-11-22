@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-22T02:14:32.048Z",
+  "updatedAt": "2026-11-22T09:50:27.062Z",
   "status": "ok",
-  "articleCount": 19,
+  "articleCount": 20,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "How WRC crews relax on road sections",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-22T09:43:31.000Z",
+      "url": "https://dirtfish.com/rally/wrc/how-wrc-crews-relax-on-road-sections/"
+    },
     {
       "title": "Hyundai closing on Rally1 return with WRC Kit",
       "source": "DirtFish",
