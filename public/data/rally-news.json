@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-23T07:38:45.749Z",
+  "updatedAt": "2026-11-23T20:14:33.533Z",
   "status": "ok",
-  "articleCount": 20,
+  "articleCount": 21,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "Rovanperä expects pecking order to change in 2027",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-23T09:06:36.000Z",
+      "url": "https://dirtfish.com/rally/wrc/rovanpera-expects-pecking-order-to-change-in-2027/"
+    },
     {
       "title": "How WRC crews relax on road sections",
       "source": "DirtFish",
