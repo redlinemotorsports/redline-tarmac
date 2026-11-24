@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-24T04:49:04.272Z",
+  "updatedAt": "2026-11-24T15:54:20.896Z",
   "status": "ok",
-  "articleCount": 21,
+  "articleCount": 23,
   "sources": [
     {
       "name": "FIA",
@@ -17,7 +17,7 @@
     {
       "name": "DirtFish",
       "type": "INDEPENDENT",
-      "status": "unavailable"
+      "status": "ok"
     },
     {
       "name": "Autosport",
@@ -31,6 +31,20 @@
     }
   ],
   "articles": [
+    {
+      "title": "Lancia closing on Rally1 WRC Kit for 2027",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-24T09:33:59.000Z",
+      "url": "https://dirtfish.com/rally/wrc/lancia-closing-on-rally1-wrc-kit-for-2027/"
+    },
+    {
+      "title": "Lancia’s WRC future “not affected” by Stellantis cutbacks",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-23T20:48:40.000Z",
+      "url": "https://dirtfish.com/rally/wrc/lancias-wrc-future-not-affected-by-stellantis-cutbacks/"
+    },
     {
       "title": "Rovanperä expects pecking order to change in 2027",
       "source": "DirtFish",
