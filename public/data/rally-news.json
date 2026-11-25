@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-24T15:54:20.896Z",
+  "updatedAt": "2026-11-25T00:44:40.007Z",
   "status": "ok",
-  "articleCount": 23,
+  "articleCount": 24,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "LOEB AND KRISTOFFERSSON TO HEADLINE INAUGURAL FIA RALLYCROSS WORLD CUP AS ENTRY LIST IS REVEALED",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-24T17:33:00.000Z",
+      "url": "https://www.fia.com/news/loeb-and-kristoffersson-headline-inaugural-fia-rallycross-world-cup-entry-list-revealed"
+    },
     {
       "title": "Lancia closing on Rally1 WRC Kit for 2027",
       "source": "DirtFish",
