@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-25T09:51:31.278Z",
+  "updatedAt": "2026-11-25T19:56:45.983Z",
   "status": "ok",
-  "articleCount": 24,
+  "articleCount": 26,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,20 @@
     }
   ],
   "articles": [
+    {
+      "title": "FIA announces Moza Racing as official partner of the FIA Esports Global Rally Tour Finals in Shanghai",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-25T15:56:00.000Z",
+      "url": "https://www.fia.com/news/fia-announces-moza-racing-official-partner-fia-esports-global-rally-tour-finals-shanghai"
+    },
+    {
+      "title": "Škoda evaluating Rally1 WRC Kit for 2027",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-25T15:44:00.000Z",
+      "url": "https://dirtfish.com/rally/wrc/skoda-evaluating-rally1-wrc-kit-for-2027/"
+    },
     {
       "title": "LOEB AND KRISTOFFERSSON TO HEADLINE INAUGURAL FIA RALLYCROSS WORLD CUP AS ENTRY LIST IS REVEALED",
       "source": "FIA",
