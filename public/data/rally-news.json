@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-26T12:35:03.165Z",
+  "updatedAt": "2026-11-26T22:21:45.156Z",
   "status": "ok",
-  "articleCount": 26,
+  "articleCount": 30,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,34 @@
     }
   ],
   "articles": [
+    {
+      "title": "WRC invites fans to vote for rally of the year",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-26T16:17:04.000Z",
+      "url": "https://dirtfish.com/rally/wrc/wrc-invites-fans-to-vote-for-rally-of-the-year/"
+    },
+    {
+      "title": "Abiteboul explains Hyundai’s WRC plan for 2027 and beyond",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-26T16:15:51.000Z",
+      "url": "https://dirtfish.com/rally/wrc/abiteboul-explains-hyundais-wrc-plan-for-2027-and-beyond/"
+    },
+    {
+      "title": "Fourmaux to stay at Hyundai in 2027",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-26T16:02:20.000Z",
+      "url": "https://dirtfish.com/rally/wrc/fourmaux-to-stay-at-hyundai-in-2027/"
+    },
+    {
+      "title": "HAVE YOUR SAY: FIA AND WRC INVITE FANS TO VOTE FOR THEIR FAVOURITE FIA WRC EVENT OF 2026",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-26T15:55:00.000Z",
+      "url": "https://www.fia.com/news/have-your-say-fia-and-wrc-invite-fans-vote-their-favourite-fia-wrc-event-2026"
+    },
     {
       "title": "FIA announces Moza Racing as official partner of the FIA Esports Global Rally Tour Finals in Shanghai",
       "source": "FIA",
