@@ -27,11 +27,8 @@ jobs:
       - run: npm install
       - name: Fetch rally newsroom headlines
         run: node scripts/fetch-rally-news.mjs
-      - name: Fetch WRC Live Timing data (primary)
-        continue-on-error: true
-        env:
-          OPEN_RALLY_MAX_EVENTS: "3"
-        run: node scripts/fetch-open-rally.mjs
+      - name: Fetch official FIA championship standings
+        run: node scripts/fetch-fia-standings.mjs
       - name: Fetch Moto-DB schedule and publish normalized rally snapshots
         run: node scripts/fetch-moto-db.mjs
       - run: npm run build

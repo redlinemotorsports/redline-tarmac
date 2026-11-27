@@ -18,11 +18,18 @@ jobs:
       - run: npm install
       - name: Check rally data adapters and UI syntax
         run: |
+          node --check scripts/fetch-fia-standings.mjs
           node --check scripts/fetch-open-rally.mjs
           node --check scripts/fetch-moto-db.mjs
           node --check src/data-centre.js
           node --check src/onboard.js
           node --check src/rally-control-data.js
+      - name: Validate official FIA championship standings
+        env:
+          WRC_SEASON: "2026"
+        run: |
+          node scripts/fetch-fia-standings.mjs
+          node -e 'const s=require("./public/data/standings.json"); for (const k of ["drivers","coDrivers","manufacturers"]) if (!s.categories[k]?.length) process.exit(1); console.log("Verified FIA standings:", Object.fromEntries(Object.entries(s.categories).map(([k,v])=>[k,v.length])));'
       - name: Validate Moto-DB schedule and normalized snapshots
         env:
           WRC_SEASON: "2026"
