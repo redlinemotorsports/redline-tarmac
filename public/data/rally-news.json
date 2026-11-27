@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-27T15:05:48.776Z",
+  "updatedAt": "2026-11-27T23:27:46.767Z",
   "status": "ok",
-  "articleCount": 31,
+  "articleCount": 32,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "Toyota’s Quintero and Short secure W2RC Drivers’ and Navigators’ titles at the 35th Abu Dhabi Desert Challenge",
+      "source": "FIA",
+      "sourceType": "OFFICIAL",
+      "publishedAt": "2026-11-27T15:34:00.000Z",
+      "url": "https://www.fia.com/news/toyotas-quintero-and-short-secure-w2rc-drivers-and-navigators-titles-35th-abu-dhabi-desert"
+    },
     {
       "title": "Toyota enters three Rally1 drivers into Monte Carlo prep event",
       "source": "DirtFish",
