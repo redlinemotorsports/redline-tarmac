@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 
 const season = Number(process.env.WRC_SEASON || new Date().getUTCFullYear());
-const source = `https://www.fia.com/events/world-rally-championship/season-${season}/standings`;
+const source = \`https://www.fia.com/events/world-rally-championship/season-\${season}/standings\`;
 
 const decode = value => String(value || "")
   .replace(/&nbsp;|&#160;/gi, " ")
@@ -23,7 +23,7 @@ const response = await fetch(source, {
   },
   signal: AbortSignal.timeout(30000)
 });
-if (!response.ok) throw new Error(`FIA standings request failed (${response.status})`);
+if (!response.ok) throw new Error(\`FIA standings request failed (\${response.status})\`);
 const html = await response.text();
 const tables = [...html.matchAll(/<table\\b[\\s\\S]*?<\\/table>/gi)].map(match => {
   const rows = [...match[0].matchAll(/<tr\\b[^>]*>([\\s\\S]*?)<\\/tr>/gi)].map(row =>
@@ -35,7 +35,7 @@ const tables = [...html.matchAll(/<table\\b[\\s\\S]*?<\\/table>/gi)].map(match =
 const driverTables = tables.filter(table => /\\bpos\\b/.test(table.header) && /\\bpts\\b/.test(table.header) && /drivers?/.test(table.header));
 const manufacturerTable = tables.find(table => /\\bpos\\b/.test(table.header) && /\\bpts\\b/.test(table.header) && /manufacturers?/.test(table.header));
 if (driverTables.length < 2 || !manufacturerTable) {
-  throw new Error(`FIA standings table structure changed; found ${tables.length} tables and ${driverTables.length} driver tables.`);
+  throw new Error(\`FIA standings table structure changed; found \${tables.length} tables and \${driverTables.length} driver tables.\`);
 }
 
 function normalizeRows(rows, category) {
@@ -65,7 +65,7 @@ const categories = {
 };
 for (const [key, rows] of Object.entries(categories)) {
   if (rows.length < (key === "manufacturers" ? 2 : 5)) {
-    throw new Error(`FIA ${key} table parsed too few rows (${rows.length}); refusing to publish an incomplete snapshot.`);
+    throw new Error(\`FIA \${key} table parsed too few rows (\${rows.length}); refusing to publish an incomplete snapshot.\`);
   }
 }
 const snapshot = {
@@ -77,7 +77,7 @@ const snapshot = {
   categories
 };
 await mkdir("public/data", { recursive: true });
-await writeFile("public/data/standings.json", JSON.stringify(snapshot, null, 2) + "\\n");
+await writeFile("public/data/standings.json", JSON.stringify(snapshot, null, 2) + "\n");
 console.log(JSON.stringify({
   provider: snapshot.provider,
   season,
