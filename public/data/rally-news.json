@@ -1,8 +1,8 @@
 {
   "provider": "FIA, DirtFish, Autosport and Motorsport.com RSS",
-  "updatedAt": "2026-11-27T05:03:38.240Z",
+  "updatedAt": "2026-11-27T15:05:48.776Z",
   "status": "ok",
-  "articleCount": 30,
+  "articleCount": 31,
   "sources": [
     {
       "name": "FIA",
@@ -31,6 +31,13 @@
     }
   ],
   "articles": [
+    {
+      "title": "Toyota enters three Rally1 drivers into Monte Carlo prep event",
+      "source": "DirtFish",
+      "sourceType": "INDEPENDENT",
+      "publishedAt": "2026-11-27T09:50:55.000Z",
+      "url": "https://dirtfish.com/rally/wrc/toyota-enters-three-rally1-drivers-into-monte-carlo-prep-event/"
+    },
     {
       "title": "WRC invites fans to vote for rally of the year",
       "source": "DirtFish",
